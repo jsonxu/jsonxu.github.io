@@ -8,7 +8,7 @@
   <meta name="description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
 <meta property="og:type" content="website">
 <meta property="og:title" content="凯歌的博客">
-<meta property="og:url" content="http://blog.css6.com/archives/index.html">
+<meta property="og:url" content="http://blog.css6.com/archives/page/2/index.html">
 <meta property="og:site_name" content="凯歌的博客">
 <meta property="og:description" content="前端开发工程师，专注XHTML、HTML5、CSS3、javascript、nodeJS、Jquery、zepto、angularJS、requireJS、EJS、LESS和SASS、web标准化、web前端工程化、前端架构、UED和UX用户体验">
 <meta name="twitter:card" content="summary">
@@ -107,23 +107,30 @@
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/2015/09/14/hello-world/" class="thumbnail">
+<a href="/2015/02/25/用户信息采集之-浏览器指纹识别技术/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
 </a>
 
       <div class="article-meta">
-        <p class="category"></p>
-        <p class="date"><time datetime="2015-09-14T08:34:54.000Z" itemprop="datePublished">2015-09-14</time></p>
+        <p class="category"><a class="article-category-link" href="/categories/原创分享/">原创分享</a></p>
+        <p class="date"><time datetime="2015-02-25T09:55:22.000Z" itemprop="datePublished">2015-02-25</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/2015/09/14/hello-world/" class="title">Hello World</a>
+        <a href="/2015/02/25/用户信息采集之-浏览器指纹识别技术/" class="title">浏览器指纹识别技术</a>
       </h2>
       <p class="article-excerpt">
         
-        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
+        最近接到一名用户的投诉：某网站不能安全退出。类似于这种问题是P0级的，公司大领导第一时间响应，要求快速解决。
+在不确定用户投诉的问题原因之前，作为开发者来说，首先是需要重现和定位该问题，于是我们按照客户提供的浏览器版本IE10的某个小版本号，找到该版本的机器，最终没有重现问题。
+后来，我们怀疑是否是用户电脑里安装了什么流氓插件导致的，于是我们就模拟用户电脑对浏览器设置各种设置，甚至修改了userAgent，也没用找到问题的原因。检查了前端代码也没有问题，找不出问题发生的原因。
+代码查遍了，定位不到问题，头疼啊！难道是要把这块的代码重构一遍？那也不一定能解决到问题。
+于是呢，期望联系到客户，期望进行远程协助。客户考虑到安全问题，残忍拒绝。
+那么遇到这样的情况，有没有办法通过技术的方式追踪用户的信息呢？当然是有的，下面就介绍这种跟踪方法。
+不过这种隐私不能滥用，特别是对于互联网金融行业对安全特别重视的产品，一旦泄露的用户的隐私后果可想而知。有必要多了解下，防患于未然。
+###什么是浏览器指纹？
+我的理解是，浏览器指纹是识别用户身份的唯一标识。
       </p>
     </div>
   </article>
@@ -138,26 +145,33 @@ Quick
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/2015/09/14/react学习路径参考/" class="thumbnail">
+<a href="/2015/02/03/用hexo免费搭建个人博客/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
 </a>
 
       <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术文摘/">技术文摘</a></p>
-        <p class="date"><time datetime="2015-09-14T07:27:19.000Z" itemprop="datePublished">2015-09-14</time></p>
+        <p class="category"><a class="article-category-link" href="/categories/原创分享/">原创分享</a></p>
+        <p class="date"><time datetime="2015-02-03T14:09:06.000Z" itemprop="datePublished">2015-02-03</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/2015/09/14/react学习路径参考/" class="title">react学习路径参考</a>
+        <a href="/2015/02/03/用hexo免费搭建个人博客/" class="title">用hexo免费搭建个人博客</a>
       </h2>
       <p class="article-excerpt">
         
-        自己在学习React-Native过程中整理的一份学习指南，包含 教程、开源app和资源网站等，还在不断更新中。欢迎pull requests！
-##React-Native学习指南
-本指南汇集React-Native各类学习资源，给大家提供便利。指南正在不断的更新，大家有好的资源欢迎Pull Requests！
-同时还有Awesome React-Native系列
-https://github.
+        以前用wordpress搭建过自己的博客，非常简单易用，不过很不安全很容易受到攻击，需要经常升级补丁。
+用wordpress搭建的博客需要购买LAMP服务器空间，期间我换过几次主机服务商，服务一家比一家差，经常宕机，速度不稳定。
+在.CN域名1元注册的时候我注册了我的博客域名，后来续费就非常贵，再后来个人注册的.CN的域名全部被天朝和谐了，实名备案申请不一定都能通过，有种被坑的感觉，这就是天朝，我就这样痛失了我的域名，博客也就关闭了，这段不堪回首的往事……
+扯的有点长…… 回到主题吧
+hexo是一个台湾的开发者基于node.js开发的一套博客系统，这套系统和一般的网站系统有点区别：它是跑在本地客户端的程序，在服务器端静态展现。是为只支持静态HTML的服务器而开发的，比如github上的pages服务。你可以用markdown语法在任何代码编辑器里书写你的博客文章，适合码农的写作方式。
+下面我再详细介绍怎样一步步安装和使用hexo，其实很简单
+搭建过程你或许觉得有那么点小繁琐，但一旦搭建完成，写文章是极简单，极舒服的。
+只需要几个简单命令，你就可以完成一切。
+
+hexo init //初始化hexo server //开启本地服务器hexo n “文章名” //写文章 == hexo newhexo g //生成 == hexo generatehexo d //部署，== hexo deploy ,可与hexo g合并为 hexo d -g
+
+##准备hexo的运行环境
       </p>
     </div>
   </article>
@@ -176,23 +190,28 @@ https://github.
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/2015/07/06/面试题解析-找出数组中重复项/" class="thumbnail">
+<a href="/2015/01/21/我店：京东我们不约/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
+    <span style="background-image:url(http://7u2n8l.com1.z0.glb.clouddn.com/buyue1.jpg
+)" alt="1号店：东东，我们不约" class="thumbnail-image"></span>
   
 </a>
 
       <div class="article-meta">
         <p class="category"><a class="article-category-link" href="/categories/原创分享/">原创分享</a></p>
-        <p class="date"><time datetime="2015-07-06T02:47:40.000Z" itemprop="datePublished">2015-07-06</time></p>
+        <p class="date"><time datetime="2015-01-21T02:04:53.000Z" itemprop="datePublished">2015-01-21</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/2015/07/06/面试题解析-找出数组中重复项/" class="title">面试题解析:找出数组中重复项</a>
+        <a href="/2015/01/21/我店：京东我们不约/" class="title">1号店：东东，我们不约</a>
       </h2>
       <p class="article-excerpt">
         
-        记得2010年去阿里巴巴中文站面试前端，标哥(中文站的前端leader)面试我，其中有一道题就是如题，要求找出数组中的重复项。虽然当时面试的时候解答的不够满意，但是回头再看看这道题，还是比较有深意的。解答的思路很多，根据思路也大致能了解到面试者在JS方面的精通程度。
-后来也经常见人问起这个题如何解，我对这个题的印象很深刻，以至于我后来当leader以后也常考察面试者对此题的解答思路，思路好的面试者
+        昨晚，在微信上看到某公众号曝光了某东对某店的隔空约战的漫画，矛头直指1号店，感觉漫画作者的画工很好啊，真羡慕。
+东东家的漫画有一些关键词很有意思：几号店、你Y才二、不二之选、激动店、最大不代表可以随便说大话、名字有一不代表排名第一 ……
+1号店则给出了往期的一些宣传广告图片予以极有力的隔空回应，最后拒绝东东的约战。
+其实投降不代表认输，认真你就输了。不过这也是双赢，免费帮1号店做广告。
+广告很有意思的，懂的人就笑泪了。
+##东东家的约炮
       </p>
     </div>
   </article>
@@ -207,22 +226,26 @@ https://github.
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/2015/06/30/zepto源码解析/" class="thumbnail">
+<a href="/2015/01/08/人人都是架构师/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
 </a>
 
       <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术文摘/">技术文摘</a></p>
-        <p class="date"><time datetime="2015-06-30T09:19:23.000Z" itemprop="datePublished">2015-06-30</time></p>
+        <p class="category"><a class="article-category-link" href="/categories/原创分享/">原创分享</a></p>
+        <p class="date"><time datetime="2015-01-08T07:49:38.000Z" itemprop="datePublished">2015-01-08</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/2015/06/30/zepto源码解析/" class="title">zepto源码解析(凯歌版)</a>
+        <a href="/2015/01/08/人人都是架构师/" class="title">人人都是架构师</a>
       </h2>
       <p class="article-excerpt">
         
-        
+        最近一直在思考一个问题：怎样做一枚好的架构师？
+首先说说，我为什么取了这个标题，因为之前看过一本某产品大牛写的《人人都是产品经理》，我就照搬了这样一个标题，《人人都是架构师》。人人如果都能做到架构师，可能是一件比较难的事，这里也只是一个概念在里面，意思是开发任何工程项目，不只是想着怎样完成，更要想着怎样才能做的更好，这里当然涉及到一些架构的思想在里面，架构就是为了让工程完成的更好。
+架构师是一个职业的统称，细分的比如有java架构师、php架构师、系统架构师、IOS架构师、安卓架构师、前端架构师、等等……架构师职业是工程师队伍里比较顶端的，一般的公司的职位划分大概是：实习生、初级工程师、普通工程师、中级工程师、高级工程师、资深工程师、初级架构师、架构师、高级架构师，不过由于很多公司的职级已经满足不了市场的需求了，在技术的职业发展通道上还增加了研究员、专家这两个职称，能达到这个职称的少之又少，只有BAT等大公司才有如此完善的职业发展通道。互联网发展的如此之快，我想过不了多久就有科学家职称出现了，或者院士。
+哦，扯的有点长了！反正是散文我就想到啥就扯啥:)
+再说说鄙人吧。
       </p>
     </div>
   </article>
@@ -241,7 +264,53 @@ https://github.
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/2015/05/21/网站前端性能优化/" class="thumbnail">
+<a href="/2015/01/05/什么样的contributions会被Github计算在内？/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+      <div class="article-meta">
+        <p class="category"><a class="article-category-link" href="/categories/技术文摘/">技术文摘</a></p>
+        <p class="date"><time datetime="2015-01-05T02:46:16.000Z" itemprop="datePublished">2015-01-05</time></p>
+      </div>
+      <h2 class="article-title">
+        <a href="/2015/01/05/什么样的contributions会被Github计算在内？/" class="title">什么样的contributions会被Github计算在内？</a>
+      </h2>
+      <p class="article-excerpt">
+        
+        在热衷于在Github上刷contributions的人（比如我）看来，每周看着contributions涨涨涨，看着Contributions Calendar越来越绿意盎然，心里一股幸福感油然而生。
+当然，这种心理现象就像LOL玩家喜欢看排名和胜盘一样，是病，得治。
+有些时候，这些平凡而坚定的人，这些脱离了低级趣味的人，这些将有限的一生奉献到无限的为人类的爱与和平打代码的事业的人……惊奇地发现，自己push的commit没有被算入contributions里。或者自己赶在截止时间之前，辛辛苦苦地完成一个commit，结果发现算到新的一天里，然后苦心策划的连击就这样前功尽废了。这时候，so sad, so painful。
+这种情绪是不好的，因为它意味着原本坚持打代码的朴素愿望已然变质，被外部化成为contributions的增加而打代码，失去了打代码的本意……不过要是没有这种contributions作为一种满足收集癖的动力，恐怕连坚持打代码的原本的朴素愿望也不会产生呢。这么说来真是说不清啊。好吧，让我们跳过纯粹道德批判，来看看主题：什么样的contributions会被Github计算在内？
+为了弄清楚这个问题，避免悲剧的一再重演，我决定查看Github的相关政策法规，并且整理整理。现在就跟大家分享一下。
+      </p>
+    </div>
+  </article>
+
+    
+  
+    
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2014" class="archive-year"><i class="icon fa fa-calendar-o"></i>2014</a>
+        </div>
+        <div class="archives">
+    
+    
+    
+      <div class="article-row">
+    
+        
+  <article class="article article-summary">
+    <div class="article-summary-inner">
+      
+<a href="/2014/12/30/FIS-pure-纯前端工程化入门/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
@@ -249,18 +318,24 @@ https://github.
 
       <div class="article-meta">
         <p class="category"><a class="article-category-link" href="/categories/原创分享/">原创分享</a></p>
-        <p class="date"><time datetime="2015-05-21T08:11:20.000Z" itemprop="datePublished">2015-05-21</time></p>
+        <p class="date"><time datetime="2014-12-30T09:06:39.000Z" itemprop="datePublished">2014-12-30</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/2015/05/21/网站前端性能优化/" class="title">网站前端性能优化指南</a>
+        <a href="/2014/12/30/FIS-pure-纯前端工程化入门/" class="title">FIS-pure 纯前端工程化入门</a>
       </h2>
       <p class="article-excerpt">
         
-        2014年末，我为平安官网门户首页做了一次大的性能优化，性能做8秒多提速到5秒多，性能提升比较明显。网站前端性能的提升，给企业带来的价值是服务器带宽和并发请求的节省，从而节省开支。另外公司也一直在鼓励提升NPM，即用户口碑和用户体验，网站性能对用户体验是最直接的影响，因为谁也不想超过8秒都打不开一个网站吧。
-说到性能优化，我想大家一定会联想到“雅虎前端性能优化N条军规”，这个文章以前在前端界很火，导致很多工程师觉得遵守雅虎工程师提到的那些条性能优化的准则就够了。其实是远远不够的，性能优化没有终点。
-下面，结合互联网和书本的一些资料，以及我个人的经验，我们来谈谈怎样进行深度的性能优化。
-1、减少HTTP请求数什么是HTTP请求呢？简单的说是服务器端返回给客户端的请求文件，如html、JS、CSS、图片、ajax数据 等等……
-合并JS文件把JS文件按需合并，除JS框架外，一个页面尽量只引用一个JS文件。可以借助require.js、seaJS等 JS模块化框架，管理好JS的加载和依赖关系，避免合并后依赖关系混乱从而导致JS错误。
+        ##入门前的准备
+###掌握一点命令行基础
+你一定听说过DOS，DOS是一个命令行操作系统，有很多命令行操作方法，在现今的GUI操作系统里依然可用的。
+下面只介绍我们最常用的几个操作命令，更多的命令就需要大家日后去勤奋自学了。
+如果你对命令行操作已经有了一定的基础，那么可以略过此章节。
+####dir / ls +文件夹路径
+列出当前文件夹下的所有文件
+dir是windows下CMD命令行工具，ls是苹果MAC操作系统里的命令行方法，功能一样的，请大家对号入座
+dir或ls后面还可以加文件夹路径，显示文件夹路径里的所有文件，如: dir d:/test ，显示D盘test文件夹下的所有文件。
+####cd  +文件夹路径
+切换到某个文件夹下，比如我们要切换到D盘的test文件夹，cd d:/test ，返回至上一层目录：cd .. ，返回到根目录cd /，这几个常用命令请牢记。
       </p>
     </div>
   </article>
@@ -275,7 +350,7 @@ https://github.
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/2015/04/28/-Mac-OS-X-10-10-3-Yosemite下面解决XAMPP无法开启mysql的问题/" class="thumbnail">
+<a href="/2014/12/25/常用命令行/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
@@ -283,18 +358,18 @@ https://github.
 
       <div class="article-meta">
         <p class="category"><a class="article-category-link" href="/categories/原创分享/">原创分享</a></p>
-        <p class="date"><time datetime="2015-04-28T09:39:18.000Z" itemprop="datePublished">2015-04-28</time></p>
+        <p class="date"><time datetime="2014-12-25T06:28:32.000Z" itemprop="datePublished">2014-12-25</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/2015/04/28/-Mac-OS-X-10-10-3-Yosemite下面解决XAMPP无法开启mysql的问题/" class="title">Mac OS X 10.10.3 Yosemite下面解决XAMPP无法开启mysql的问题</a>
+        <a href="/2014/12/25/常用命令行/" class="title">MAC终端常用命令行</a>
       </h2>
       <p class="article-excerpt">
         
-        在xampp安装目录下找到xamp这个文件（默认路径是：/Applications/XAMPP/xamppfiles/xampp）
-用文本编辑器打开，搜索：$XAMPP_ROOT/bin/mysql.server start &gt; /dev/null &amp;
-在那一行前面添加：  unset DYLD_LIBRARY_PATH
-保存退出，重新打开xampp，开启MySQL。
-卧槽，居然变绿
+        ##mac 终端 常用命令
+##基本命令
+###1、列出文件ls 参数 目录名        例: 看看驱动目录下有什么:ls /System/Library/Extensions参数 -w 显示中文，-l 详细信息， -a 包括隐藏文件
+###2、转换目录cd    例：想到驱动目录下溜达一圈   cd /System/Library/Extensions
+###3、建立新目录mkdir 目录名     例：在驱动目录下建一个备份目录 backup     mkdir /System/Library/Extensions/backup在桌面上建一个备份目录 backup    mkdir /User/用户名/Desktop/backup
       </p>
     </div>
   </article>
@@ -313,56 +388,31 @@ https://github.
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/2015/04/28/前端开发javascript规范指南/" class="thumbnail">
+<a href="/2014/12/18/VIM常用命令/" class="thumbnail">
   
-    <span style="background-image:url(https://badges.gitter.im/Join
-)" alt="前端开发javascript规范指南" class="thumbnail-image"></span>
+    <span class="thumbnail-image thumbnail-none"></span>
   
 </a>
 
       <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/原创分享/">原创分享</a></p>
-        <p class="date"><time datetime="2015-04-28T06:47:17.000Z" itemprop="datePublished">2015-04-28</time></p>
+        <p class="category"><a class="article-category-link" href="/categories/技术文摘/">技术文摘</a></p>
+        <p class="date"><time datetime="2014-12-18T07:29:40.000Z" itemprop="datePublished">2014-12-18</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/2015/04/28/前端开发javascript规范指南/" class="title">前端开发javascript规范指南</a>
+        <a href="/2014/12/18/VIM常用命令/" class="title">VIM常用命令</a>
       </h2>
       <p class="article-excerpt">
         
-        
-Airbnb JavaScript Style Guide前端JavaScript编码规范JavaScript最佳通用规范
-内容提纲
-类型
-对象
-字符串
-数组
-函数
-对象的属性
-变量
-Hoisting封装？
-条件语句和等号运算符
-代码块
-注释
-空格
-逗号
-分号
-Type Casting &amp; Coercion
-命名约定
-存取器
-构造器
-事件
-模块
-jQuery
-ECMAScript5 兼容性
-性能
-资源
-现状
-翻译
-JavaScript风格指南
-请与我们交流关于JavaScript
-贡献者
-许可声明
-
+        ##命令历史
+以:和/开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。
+启动vim
+在命令行窗口中输入以下命令即可
+vim 直接启动vim
+vim filename 打开vim并创建名为filename的文件
+##文件命令
+打开单个文件
+vim file
+同时打开多个文件
       </p>
     </div>
   </article>
@@ -377,24 +427,30 @@ JavaScript风格指南
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/2015/04/28/前端开发知识体系和学习资源/" class="thumbnail">
+<a href="/2014/12/03/Git常用命令行操作/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
 </a>
 
       <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术文摘/">技术文摘</a></p>
-        <p class="date"><time datetime="2015-04-28T06:20:39.000Z" itemprop="datePublished">2015-04-28</time></p>
+        <p class="category"><a class="article-category-link" href="/categories/原创分享/">原创分享</a></p>
+        <p class="date"><time datetime="2014-12-03T06:07:14.000Z" itemprop="datePublished">2014-12-03</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/2015/04/28/前端开发知识体系和学习资源/" class="title">前端开发知识体系和学习资源</a>
+        <a href="/2014/12/03/Git常用命令行操作/" class="title">Git常用命令行操作</a>
       </h2>
       <p class="article-excerpt">
         
-        综合类资源:
-
-前端知识体系前端知识结构免费的编程中文书籍索引前端书籍
+        git config –global user.name “ooxx” //配置GIT用户名
+git config –global user.email “ooxx@qq.com” //配置GIT邮箱
+git init //如果要用GIT监管，用此命令初始化
+git status //查看文件状态
+git add filename //filename=文件名，添加单个文件到暂存区
+git add . //注意后面有一个点，将所有修改后的文件或新文件加到本地暂存区
+git commit -m “some string” //后面建议添加注释，提交到本地
+git push -u origin master //origin是git仓库的地址，建议使用SSH的仓库地址，提交到服务器
+git log //查看操作记录
       </p>
     </div>
   </article>
@@ -413,88 +469,29 @@ JavaScript风格指南
   <article class="article article-summary">
     <div class="article-summary-inner">
       
-<a href="/2015/04/02/mata标签汇总/" class="thumbnail">
-  
-    <span style="background-image:url(http://segmentfault.com/img/bVkgzS
-)" alt="mata标签使用方法汇总" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术文摘/">技术文摘</a></p>
-        <p class="date"><time datetime="2015-04-02T04:04:24.000Z" itemprop="datePublished">2015-04-02</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/2015/04/02/mata标签汇总/" class="title">mata标签使用方法汇总</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        &lt; meta &gt; 元素
-概要  标签提供关于HTML文档的元数据。元数据不会显示在页面上，但是对于机器是可读的。它可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。    —— W3School
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/2015/03/23/前端开发插件和组件库收集/" class="thumbnail">
+<a href="/2014/11/26/快的打车产品经理致马化腾公开信：说好的开放呢？/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
   
 </a>
 
       <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术文摘/">技术文摘</a></p>
-        <p class="date"><time datetime="2015-03-23T08:04:07.000Z" itemprop="datePublished">2015-03-23</time></p>
+        <p class="category"><a class="article-category-link" href="/categories/生活随笔/">生活随笔</a></p>
+        <p class="date"><time datetime="2014-11-26T06:32:34.000Z" itemprop="datePublished">2014-11-26</time></p>
       </div>
       <h2 class="article-title">
-        <a href="/2015/03/23/前端开发插件和组件库收集/" class="title">前端开发插件和组件库收集</a>
+        <a href="/2014/11/26/快的打车产品经理致马化腾公开信：说好的开放呢？/" class="title">快的打车产品经理致马化腾公开信：说好的开放呢？</a>
       </h2>
       <p class="article-excerpt">
         
-        #前端组件库
-
-搭建web app常用的样式/组件等收集列表(移动优先)
-
-##0. 前端自动化(Workflow)
-
-前端构建工具
-Yeoman - a set of tools for automating development workflow 
-gulp - The streaming build system 
-grunt - the JavaScript Task Runner
-F.I.S - 前端集成解决方案
-
-
-前端模块管理器
-Bower - A package manager for the web
-Browserify
-Component
-Duo
-RequireJS
-Sea.js
-
-
-css预处理器
-Less - Less is More , Than CSS 
-Sass - Syntactically Awesome Style Sheets
-Stylus - Expressive, dynamic, robust CSS
-
-
-
+        Dear Pony：
+我是快的打车的一枚产品经理，工号001。听说你的QQ号是10001，想必也是腾讯的1号员工吧，我想我有资格给你写封信。
+在写这封信之前，我和我的小伙伴努力寻找过，我们不能在微信上甩红包的原因。
+你知道吗？那天，我们开心地决定，在打车后送给每位用户一个包含66个打车券的大红包。我依然记得那时，领导握着我的手动情地说：“大家壕，才是真的壕！”
       </p>
     </div>
   </article>
 
-    
-      </div>
     
   
   
@@ -502,8 +499,8 @@ Stylus - Expressive, dynamic, robust CSS
   
   
     <nav id="page-nav">
-      <span class="pages">第 1 页，共 3 页</span>
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">&raquo;</a>
+      <span class="pages">第 2 页，共 3 页</span>
+      <a class="extend prev" rel="prev" href="/archives/">&laquo;</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">&raquo;</a>
     </nav>
   
 
