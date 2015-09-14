@@ -15,7 +15,7 @@
 <meta property="og:description" content="以前用wordpress搭建过自己的博客，非常简单易用，不过很不安全很容易受到攻击，需要经常升级补丁。
 用wordpress搭建的博客需要购买LAMP服务器空间，期间我换过几次主机服务商，服务一家比一家差，经常宕机，速度不稳定。
 在.CN域名1元注册的时候我注册了我的博客域名，后来续费就非常贵，再后来个人注册的.CN的域名全部被天朝和谐了，实名备案申请不一定都能通过，有种被坑的感觉，这就是天朝，我">
-<meta property="og:updated_time" content="2015-02-25T10:11:29.000Z">
+<meta property="og:updated_time" content="2015-09-14T11:19:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo免费搭建个人博客">
 <meta name="twitter:description" content="以前用wordpress搭建过自己的博客，非常简单易用，不过很不安全很容易受到攻击，需要经常升级补丁。
@@ -184,6 +184,10 @@
 </blockquote>
 <p>可以cd到目标目录，执行hexo init。</p>
 <p>hexo的安装已经完成了，很简单吧</p>
+<p>安装完hexo之后，hexo需要依赖于npm，cd进入到安装后的文件夹，安装npm依赖：</p>
+<blockquote>
+<p>npm install</p>
+</blockquote>
 <p>##生成静态页面</p>
 <p>cd 到你的init目录，执行如下命令，生成静态页面至hexo\public\目录。</p>
 <blockquote>
@@ -286,11 +290,18 @@
 <span class="label">type:</span> github <span class="preprocessor">#发布的服务器厂商，这里就写github，名字不能随便写</span>
 <span class="label">repository:</span> git@github.com:jsonxu/jsonxu.github.io.git  <span class="preprocessor">#注意，这个填SSH的远程仓库地址，别错写成HTTPS的资源地址了</span>
 <span class="label">branch:</span> master  <span class="preprocessor">#这里填仓库的分支名称，注意不用写成gh-pages分支，直接用主干分支master</span></span></span></span>
-</code></pre><p><code>未完待续...</code></p>
+</code></pre><p>如果已完成了以上步骤，现在你可以在本地查看 和 部署到github服务器了，用以下命令：</p>
+<blockquote>
+<p>hexo n “文章名” //写文章 == hexo new<br>hexo g //生成 == hexo generate<br>hexo d //部署，== hexo deploy ,可与hexo g合并为 hexo d -g</p>
+</blockquote>
+<h2 id="给博客绑定域名">给博客绑定域名</h2><p>如果你有网站域名，请去域名服务商网站设置你域名的CNAME指向，指向到你的github名，如：username.github.io</p>
+<p>然后在博客本地文件夹中的source文件夹里建立一个CNAME的文件（注意没有后缀）,文件中写入你的域名（不需要HTTP前缀）,比如 blog.css6.com</p>
+<p>然后再执行hexo g和hexo d 生成和发布，这时候你可以在你的Github项目文件中的Master分支上看到CNAME文件了，</p>
+<p>稍等片刻你就可以用你的域名访问了，是不是很爽？分享给你的朋友吧。</p>
 
       </div>
       <footer class="article-footer">
-        <a data-url="http://blog.css6.com/2015/02/03/用hexo免费搭建个人博客/" data-id="ciejtwt6c000n2mrlaub6wp4z" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        <a data-url="http://blog.css6.com/2015/02/03/用hexo免费搭建个人博客/" data-id="cieju8va1000n3rrlwdvtcx99" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
