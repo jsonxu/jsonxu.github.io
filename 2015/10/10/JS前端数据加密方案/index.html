@@ -32,7 +32,7 @@
 针对问题2，需要对客户端数据进行加密
 针对问题3，在PC做模拟软键盘，通过鼠标点击事件输入密码，从">
 <meta property="og:image" content="http://cdn.css6.com/m%2F201510%2F095IA458-0.jpg">
-<meta property="og:updated_time" content="2015-10-10T07:23:45.000Z">
+<meta property="og:updated_time" content="2015-10-10T07:26:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS前端数据加密方案">
 <meta name="twitter:description" content="在如今互联网火热的形势下，安全成为各互联网公司比较重视的问题。
@@ -161,25 +161,17 @@
 <p>前端与后端做到非对称加密，才是一种比较靠谱的安全方案。前端动态拿到后端的密匙，密匙有时效性，这样能保障每个用户传输的数据都是用的不同的密匙，后端拿到数据后动态解密然后按照后端的加密方法存储。</p>
 <p>现在互联网上已经有一些开发的比较好的开源加密插件，好轮子就直接拿过来用用。</p>
 <ol>
-<li><a href="https://www.braintreepayments.com/blog/client-side-encryption/" target="_blank" rel="external">braintree.js</a></li>
+<li><p><a href="https://www.braintreepayments.com/blog/client-side-encryption/" target="_blank" rel="external">braintree.js</a>它是设计用于与客户端的库。加密库将数据(通常是在一个移动设备或merchant-hosted网站通过表单提交)和加密使用非对称密钥对的公钥提交。在服务器上,使用客户端发送加密数的公钥。</p>
+</li>
+<li><p><a href="https://github.com/JoeDoyle23/BurningPig-encryption" target="_blank" rel="external">BurningPig-encryption</a>使用RSA算法进行加密</p>
+</li>
+<li><p><a href="http://blog.faultylabs.com/?d=md5" target="_blank" rel="external">MD5</a> 顾名思义就是我们常了解的MD5加密了</p>
+</li>
+<li><p><a href="https://github.com/evanvosberg/crypto-js" target="_blank" rel="external">crypto.js</a> 是一个综合的库，包含很多算法，MD5，SHA-1，SHA-256，AES，Rabbit，MARC4，HMAC，HMAC-MD5，HMAC-SHA1，HMAC-SHA256，PBKDF2</p>
+</li>
+<li><p><a href="http://bitwiseshiftleft.github.io/sjcl/" target="_blank" rel="external">sjcl</a> 网上也有很多关于数据加密的，大部分思路是使用非对称加密方法，如果你有好的方法可以多多交流。</p>
+</li>
 </ol>
-<p>它是设计用于与客户端的库。加密库将数据(通常是在一个移动设备或merchant-hosted网站通过表单提交)和加密使用非对称密钥对的公钥提交。在服务器上,使用客户端发送加密数的公钥。</p>
-<ol>
-<li><a href="https://github.com/JoeDoyle23/BurningPig-encryption" target="_blank" rel="external">BurningPig-encryption</a></li>
-</ol>
-<p>使用RSA算法进行加密</p>
-<ol>
-<li><a href="http://blog.faultylabs.com/?d=md5" target="_blank" rel="external">MD5</a></li>
-</ol>
-<p>顾名思义就是我们常了解的MD5加密了</p>
-<ol>
-<li><a href="https://github.com/evanvosberg/crypto-js" target="_blank" rel="external">crypto.js</a></li>
-</ol>
-<p>是一个综合的库，包含很多算法，MD5，SHA-1，SHA-256，AES，Rabbit，MARC4，HMAC，HMAC-MD5，HMAC-SHA1，HMAC-SHA256，PBKDF2</p>
-<ol>
-<li><a href="http://bitwiseshiftleft.github.io/sjcl/" target="_blank" rel="external">sjcl</a></li>
-</ol>
-<p>网上也有很多关于数据加密的，大部分思路是使用非对称加密方法，如果你有好的方法可以多多交流。</p>
 <p>另外附上两个在node.js环境上加密解密的插件：</p>
 <p><a href="https://github.com/gwjjeff/cryptojs" target="_blank" rel="external">https://github.com/gwjjeff/cryptojs</a></p>
 <p><a href="https://github.com/cyphrd/crypto" target="_blank" rel="external">https://github.com/cyphrd/crypto</a></p>
