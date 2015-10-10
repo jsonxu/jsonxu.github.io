@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="凯歌的博客">
 <meta property="og:description" content="记得2010年去阿里巴巴中文站面试前端，标哥(中文站的前端leader)面试我，其中有一道题就是如题，要求找出数组中的重复项。虽然当时面试的时候解答的不够满意，但是回头再看看这道题，还是比较有深意的。解答的思路很多，根据思路也大致能了解到面试者在JS方面的精通程度。
 后来也经常见人问起这个题如何解，我对这个题的印象很深刻，以至于我后来当leader以后也常考察面试者对此题的解答思路，思路好的面试者">
-<meta property="og:updated_time" content="2015-10-10T07:02:24.000Z">
+<meta property="og:updated_time" content="2015-10-10T07:12:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题解析:找出数组中重复项">
 <meta name="twitter:description" content="记得2010年去阿里巴巴中文站面试前端，标哥(中文站的前端leader)面试我，其中有一道题就是如题，要求找出数组中的重复项。虽然当时面试的时候解答的不够满意，但是回头再看看这道题，还是比较有深意的。解答的思路很多，根据思路也大致能了解到面试者在JS方面的精通程度。
@@ -108,11 +108,11 @@
 <p>下面就各种思路简单介绍下，希望给各位有所启发，祝大家面试都得高分，hoho~~</p>
 <pre><code><span class="keyword">var</span> ar = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'a'</span>,<span class="number">2</span>,<span class="string">'c'</span>,<span class="string">'xoxo'</span>,<span class="string">'ppp'</span>];  <span class="comment">//原始数组</span>
 <span class="keyword">var</span> new_ar = ar;
-<span class="keyword">var</span> len = ar.length;  <span class="comment">//存储数组长度</span>
+<span class="keyword">var</span> <span class="built_in">len</span> = ar.length;  <span class="comment">//存储数组长度</span>
 <span class="keyword">var</span> ar2=[];  <span class="comment">//</span>
 <span class="keyword">var</span> k = <span class="number">0</span>;  <span class="comment">//判断器变量</span>
-<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;len;i++){
-    <span class="keyword">for</span>(<span class="keyword">var</span> e=<span class="number">0</span>;e&lt;len;e++){
+<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="built_in">len</span>;i++){
+    <span class="keyword">for</span>(<span class="keyword">var</span> e=<span class="number">0</span>;e&lt;<span class="built_in">len</span>;e++){
         <span class="keyword">if</span>(ar[i] == ar[e]){
             k+=<span class="number">1</span>;
             <span class="keyword">if</span>(k!==<span class="number">1</span>){
@@ -125,23 +125,22 @@
 ar2 = ar2.splice(<span class="number">0</span>,ar2.length/<span class="number">2</span>);
 
 alert(<span class="string">'重复的项是'</span>+ar2);<span class="comment">//前半段或后半段是重复项</span>
-
-<span class="keyword">var</span> ar = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'a'</span>,<span class="number">2</span>,<span class="string">'c'</span>,<span class="string">'xoxo'</span>,<span class="string">'ppp'</span>];  <span class="comment">//原始数组</span>
+</code></pre><hr>
+<pre><code><span class="keyword">var</span> ar = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'a'</span>,<span class="number">2</span>,<span class="string">'c'</span>,<span class="string">'xoxo'</span>,<span class="string">'ppp'</span>];  <span class="comment">//原始数组</span>
 ar=ar.sort();
 <span class="keyword">var</span> ar2=[];
 <span class="keyword">var</span> len=ar.length;
-<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;len;i++){
-    <span class="keyword">if</span>(ar[i]==ar[i+<span class="number">1</span>]){
+<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;len;i++)<span class="comment">{
+    if(ar[i]==ar[i+1]){
         ar2.push(ar[i]);
-    }
+    }</span>
 }
 alert(<span class="string">'重复项是：'</span>+ ar2)
-
-
-<span class="keyword">var</span> arr =[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">444</span>,<span class="number">5</span>,<span class="number">77</span>,<span class="number">444</span>,<span class="number">66</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">6</span>];
-<span class="built_in">Array</span>.prototype.unique=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-  <span class="keyword">var</span> hash={};
-  <span class="keyword">var</span> arr1=[];
+</code></pre><hr>
+<pre><code>var arr =[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">444</span>,<span class="number">5</span>,<span class="number">77</span>,<span class="number">444</span>,<span class="number">66</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">6</span>];
+Array.prototype.unique=function(){
+  var hash={};
+  var arr1=[];
   <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.length;i++){
     <span class="keyword">if</span> (!hash[<span class="keyword">this</span>[i]]){  <span class="comment">//判断如果哈希表里没有当前项</span>
     hash[<span class="keyword">this</span>[i]]=<span class="literal">true</span>;
