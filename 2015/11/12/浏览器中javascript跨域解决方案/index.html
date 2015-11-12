@@ -3,49 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JS前端数据加密方案 | 凯歌的博客</title>
+  <title>浏览器中javascript跨域解决方案 | 凯歌的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在如今互联网火热的形势下，安全成为各互联网公司比较重视的问题。
-怎么能确保用户的信息在互联网传输安全？自然会涉及到数据加密的问题。
-主要会考虑3点:
-
-数据传输过程中被劫持
-客户端被植入木马，数据泄露
-键盘操作事件被木马记录导致输入密码、账号等敏感数据泄露
-
-针对问题1，使用HTTPS传输协议能解决
-针对问题2，需要对客户端数据进行加密
-针对问题3，在PC做模拟软键盘，通过鼠标点击事件输入密码，从">
+  <meta name="description" content="什么是跨域1、document.domain+iframe的设置2、动态创建script3、利用iframe和location.hash4、window.name实现的跨域数据传输5、使用HTML5 postMessage6、利用flash本文来自网络（http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。什么是跨域">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS前端数据加密方案">
-<meta property="og:url" content="http://blog.css6.com/2015/10/10/JS前端数据加密方案/index.html">
+<meta property="og:title" content="浏览器中javascript跨域解决方案">
+<meta property="og:url" content="http://blog.css6.com/2015/11/12/浏览器中javascript跨域解决方案/index.html">
 <meta property="og:site_name" content="凯歌的博客">
-<meta property="og:description" content="在如今互联网火热的形势下，安全成为各互联网公司比较重视的问题。
-怎么能确保用户的信息在互联网传输安全？自然会涉及到数据加密的问题。
-主要会考虑3点:
-
-数据传输过程中被劫持
-客户端被植入木马，数据泄露
-键盘操作事件被木马记录导致输入密码、账号等敏感数据泄露
-
-针对问题1，使用HTTPS传输协议能解决
-针对问题2，需要对客户端数据进行加密
-针对问题3，在PC做模拟软键盘，通过鼠标点击事件输入密码，从">
-<meta property="og:image" content="http://cdn.css6.com/m%2F201510%2F095IA458-0.jpg">
-<meta property="og:updated_time" content="2015-10-10T07:26:24.000Z">
+<meta property="og:description" content="什么是跨域1、document.domain+iframe的设置2、动态创建script3、利用iframe和location.hash4、window.name实现的跨域数据传输5、使用HTML5 postMessage6、利用flash本文来自网络（http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。什么是跨域">
+<meta property="og:updated_time" content="2015-11-12T10:21:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS前端数据加密方案">
-<meta name="twitter:description" content="在如今互联网火热的形势下，安全成为各互联网公司比较重视的问题。
-怎么能确保用户的信息在互联网传输安全？自然会涉及到数据加密的问题。
-主要会考虑3点:
-
-数据传输过程中被劫持
-客户端被植入木马，数据泄露
-键盘操作事件被木马记录导致输入密码、账号等敏感数据泄露
-
-针对问题1，使用HTTPS传输协议能解决
-针对问题2，需要对客户端数据进行加密
-针对问题3，在PC做模拟软键盘，通过鼠标点击事件输入密码，从">
+<meta name="twitter:title" content="浏览器中javascript跨域解决方案">
+<meta name="twitter:description" content="什么是跨域1、document.domain+iframe的设置2、动态创建script3、利用iframe和location.hash4、window.name实现的跨域数据传输5、使用HTML5 postMessage6、利用flash本文来自网络（http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。什么是跨域">
   
   
   <link rel="icon" href="/favicon.png">
@@ -111,7 +80,7 @@
             </div>
             <div class="main-body-content">
               
-  <article id="post-JS前端数据加密方案" class="article article-single article-type-post" itemscope itemprop="blogPost">
+  <article id="post-浏览器中javascript跨域解决方案" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
       <!--  -->
       
@@ -119,69 +88,25 @@
           
   
     <h1 class="article-title" itemprop="name">
-      JS前端数据加密方案
+      浏览器中javascript跨域解决方案
     </h1>
   
 
         </header>
       
       <p class="article-byline">
-        <a href="/2015/10/10/JS前端数据加密方案/" class="article-date">
-  <time datetime="2015-10-10T06:03:54.000Z" itemprop="datePublished">2015-10-10</time>
+        <a href="/2015/11/12/浏览器中javascript跨域解决方案/" class="article-date">
+  <time datetime="2015-11-12T10:18:33.000Z" itemprop="datePublished">2015-11-12</time>
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <p><img src="http://cdn.css6.com/m%2F201510%2F095IA458-0.jpg" alt=""></p>
-<p>在如今互联网火热的形势下，安全成为各互联网公司比较重视的问题。</p>
-<p>怎么能确保用户的信息在互联网传输安全？自然会涉及到数据加密的问题。</p>
-<p>主要会考虑3点:</p>
-<ol>
-<li>数据传输过程中被劫持</li>
-<li>客户端被植入木马，数据泄露</li>
-<li>键盘操作事件被木马记录导致输入密码、账号等敏感数据泄露</li>
-</ol>
-<p>针对问题1，使用HTTPS传输协议能解决</p>
-<p>针对问题2，需要对客户端数据进行加密</p>
-<p>针对问题3，在PC做模拟软键盘，通过鼠标点击事件输入密码，从而避免键盘事件被黑客监听</p>
-<p>下面摘录知乎上的<a href="http://www.zhihu.com/question/25539382" target="_blank" rel="external">一篇回答</a>：</p>
-<blockquote>
-<p>前端的代码都是裸露的，那么对于前端加密有没有什么意义呢？对于这个问题我也了解了其他同行的看法，很多表示前端加密意义不大。</p>
-<p>密码在前端加密完全没有意义，对密码系统的安全性不会有任何提高，反而会引发不必要的麻烦。</p>
-<p>首先，做前端开发的人需要知道，前端系统的控制权是完全在用户手里的，也就是说，前端做什么事情，用户有完全的控制权。</p>
-<p>假设如同 @陈轩所说，前端做过了md5，后台就不用做了，这个做法会有什么后果？如果某一天，这个系统的数据库泄露了，黑客就直接拿到了每个用户的密码md5值，但此时，由于黑客知道密码是在前端进行哈希的，所以他不需要爆破出该md5对应的原文是什么，而是直接修改客户端向服务器发出的请求，把密码字段换成数据库中MD5就可以了，由于与数据库中记录一致，直接就会登录成功。这跟直接存储明文密码没有任何区别！！！所以不管前端是不是加密了密码，后台使用安全的哈希算法对内容再次转换是非常有必要的。（MD5可不行，要用bcrypt，我之前回答过一个类似的：随着显卡性能的高速发展，目前的快速Hash算法是否已经变得不够安全了？）</p>
-<p>这个回答还有一个人赞同，希望大家别被错误答案误导了。</p>
-<p>另外一个答案 @林鸿所说，在非安全HTTP连接上，可以防止原始密码被窃听。但问题在于由于你的登录系统接受的哈希过的密码，而不是原文，窃听者根本不需要原始密码，只要通过哈希结果就可以伪造请求登录系统。这样做只能防止被窃听到原文的密码被攻击者用在社会学攻击上，而不能改善该网站的安全性。所以不管前端是不是加密了密码，使用HTTPS安全连接进行登录都是非常有必要的。</p>
-<p>以上我说的两点，合起来看就是：不管前端是否加密了密码，都不能以此为假设，让后端设计的安全等级下降，否则就会有严重的安全问题。实际上，前端进行密码加密，可以看做帮助用户多进行了一次原文的转换，不管用了什么加密算法，算出来的结果都是密码原文，你该如何保护用户的原始密码，就该如何保护此处的加密结果，因为对你的登录系统来说，它们都是密码原文。</p>
-<p>以上这些，说明了密码加密是没有什么意义的，接下来，我要说明前端加密会带来什么问题。</p>
-<p>有些人会认为前端进行了加密，可以降低后台的安全性需求，这种错误的观念会造成系统的安全漏洞。实际上，你不能对前端做任何的假设，所有跟安全相关的技术，都必须应用在后台上。</p>
-<p>前端进行加密会造成页面需要js脚本才能运行，那么假设你的系统需要兼容不能运行js的客户端，就必须再设计一个使用原文的登录接口。</p>
-<p>由于前端是不是加密，所有安全机制都必须照常应用，所以为系统增加这样的复杂性是完全没必要的，即使传输明文密码，只要正确使用了HTTPS连接和服务器端安全的哈希算法，密码系统都可以是很安全的。</p>
-</blockquote>
-<p>作者说的是对称加密，密匙是在前端暴露固定不变的，这样势必也不是很安全的，数据传输到后端也不能直接拿来存储，需要另外再做一层加密才有可能保证数据万一被黑客盗取后的安全性。</p>
-<p>前端与后端做到非对称加密，才是一种比较靠谱的安全方案。前端动态拿到后端的密匙，密匙有时效性，这样能保障每个用户传输的数据都是用的不同的密匙，后端拿到数据后动态解密然后按照后端的加密方法存储。</p>
-<p>现在互联网上已经有一些开发的比较好的开源加密插件，好轮子就直接拿过来用用。</p>
-<ol>
-<li><p><a href="https://www.braintreepayments.com/blog/client-side-encryption/" target="_blank" rel="external">braintree.js</a>它是设计用于与客户端的库。加密库将数据(通常是在一个移动设备或merchant-hosted网站通过表单提交)和加密使用非对称密钥对的公钥提交。在服务器上,使用客户端发送加密数的公钥。</p>
-</li>
-<li><p><a href="https://github.com/JoeDoyle23/BurningPig-encryption" target="_blank" rel="external">BurningPig-encryption</a>使用RSA算法进行加密</p>
-</li>
-<li><p><a href="http://blog.faultylabs.com/?d=md5" target="_blank" rel="external">MD5</a> 顾名思义就是我们常了解的MD5加密了</p>
-</li>
-<li><p><a href="https://github.com/evanvosberg/crypto-js" target="_blank" rel="external">crypto.js</a> 是一个综合的库，包含很多算法，MD5，SHA-1，SHA-256，AES，Rabbit，MARC4，HMAC，HMAC-MD5，HMAC-SHA1，HMAC-SHA256，PBKDF2</p>
-</li>
-<li><p><a href="http://bitwiseshiftleft.github.io/sjcl/" target="_blank" rel="external">sjcl</a> 网上也有很多关于数据加密的，大部分思路是使用非对称加密方法，如果你有好的方法可以多多交流。</p>
-</li>
-</ol>
-<p>另外附上两个在node.js环境上加密解密的插件：</p>
-<p><a href="https://github.com/gwjjeff/cryptojs" target="_blank" rel="external">https://github.com/gwjjeff/cryptojs</a></p>
-<p><a href="https://github.com/cyphrd/crypto" target="_blank" rel="external">https://github.com/cyphrd/crypto</a></p>
-
+        <div id="cnblogs_post_body"><ul class="catalogue"><li style="padding-left:0px"><span><a href="#m0">什么是跨域</a></span></li><li style="padding-left:0px"><span><a href="#m1">1、document.domain+iframe的设置</a></span></li><li style="padding-left:0px"><span><a href="#m2">2、动态创建script</a></span></li><li style="padding-left:0px"><span><a href="#m3">3、利用iframe和location.hash</a></span></li><li style="padding-left:0px"><span><a href="#m4">4、window.name实现的跨域数据传输</a></span></li><li style="padding-left:0px"><span><a href="#m5">5、使用HTML5 postMessage</a></span></li><li style="padding-left:0px"><span><a href="#m6">6、利用flash</a></span></li></ul><div class="rainman-post"><br><p>本文来自网络（<a href="http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。" target="_blank" rel="external">http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。</a></p><br><a href="#" name="m0"></a><h3>什么是跨域</h3><br><p>JavaScript出于安全方面的考虑，不允许跨域调用其他页面的对象。但在安全限制的同时也给注入iframe或是ajax应用上带来了不少麻烦。这里把涉及到跨域的一些问题简单地整理一下：</p><br><p>首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：</p><br><table class="border"><br><tbody><br><tr><br><th>URL</th><br>            <th>说明</th><br>            <th>是否允许通信</th><br><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></td><br><td>同一域名下</td><br><td>允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/lab/a.js" target="_blank" rel="external">http://www.a.com/lab/a.js</a><br><br><a href="http://www.a.com/script/b.js" target="_blank" rel="external">http://www.a.com/script/b.js</a></td><br><td>同一域名下不同文件夹</td><br><td>允许</td><br></tr><br><tr><br><td><a href="http://www.a.com:8000/a.js" target="_blank" rel="external">http://www.a.com:8000/a.js</a><br><br><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></td><br><td>同一域名，不同端口</td><br><td>不允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="https://www.a.com/b.js" target="_blank" rel="external">https://www.a.com/b.js</a></td><br><td>同一域名，不同协议</td><br><td>不允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="http://70.32.92.74/b.js" target="_blank" rel="external">http://70.32.92.74/b.js</a></td><br><td>域名和域名对应ip</td><br><td>不允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="http://script.a.com/b.js" target="_blank" rel="external">http://script.a.com/b.js</a></td><br><td>主域相同，子域不同</td><br><td>不允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="http://a.com/b.js" target="_blank" rel="external">http://a.com/b.js</a><br></td><br><td>同一域名，不同二级域名（同上）</td><br><td>不允许（cookie这种情况下也不允许访问）</td><br></tr><br><tr><br><td><a href="http://www.cnblogs.com/a.js" target="_blank" rel="external">http://www.cnblogs.com/a.js</a><br><br><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></td><br><td>不同域名</td><br><td>不允许</td><br></tr><br></tbody><br></table><br><dl><br>    <dt>特别注意两点：</dt><br>    <dd>第一，如果是协议和端口造成的跨域问题“前台”是无能为力的，</dd><br>    <dd>第二：在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。<br>“URL的首部”指window.location.protocol +window.location.host，也可以理解为“Domains, protocols and ports must match”。</dd><br></dl><br><p>接下来简单地总结一下在“前台”一般处理跨域的办法，后台proxy这种方案牵涉到后台配置，这里就不阐述了，有兴趣的可以看看yahoo的这篇文章：《<a target="_blank" href="http://developer.yahoo.com/javascript/howto-proxy.html">JavaScript: Use a Web Proxy for Cross-Domain XMLHttpRequest Calls</a>》</p><br><a href="#" name="m1"></a><h3>1、document.domain+iframe的设置</h3><br><p><span class="highlight">对于主域相同而子域不同的例子，可以通过设置document.domain的办法来解决</span>。具体的做法是可以在<a href="http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain" target="_blank" rel="external">http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain</a> = ‘a.com’；然后通过a.html文件中创建一个iframe，去控制iframe的contentDocument，这样两个js文件之间就可以“交互”了。当然这种办法只能解决主域相同而二级域名不同的情况，如果你异想天开的把script.a.com的domian设为alibaba.com那显然是会报错地！代码如下：</p><br><p>www.a.com上的a.html</p><br><div class="rainman-code"><br><pre>document.domain = ‘a.com’;<br>var ifr = document.createElement(‘iframe’);<br>ifr.src = ‘<a href="http://script.a.com/b.html" target="_blank" rel="external">http://script.a.com/b.html</a>‘;<br>ifr.style.display = ‘none’;<br>document.body.appendChild(ifr);<br>ifr.onload = function(){<br>    var doc = ifr.contentDocument || ifr.contentWindow.document;<br>    // 在这里操纵b.html<br>    alert(doc.getElementsByTagName(“h1”)[0].childNodes[0].nodeValue);<br>};</pre><br></div><br><p>script.a.com上的b.html</p><br><div class="rainman-code"><br><pre>document.domain = ‘a.com’;</pre><br></div><br><p>这种方式适用于{www.kuqin.com, kuqin.com, script.kuqin.com, css.kuqin.com}中的任何页面相互通信。</p><br><p>备注：某一页面的domain默认等于window.location.hostname。主域名是不带www的域名，例如a.com，主域名前面带前缀的通常都为二级域名或多级域名，例如www.a.com其实是二级域名。<br>domain只能设置为主域名，不可以在b.a.com中将domain设置为c.a.com。</p><br><dl><br>    <dt>问题：</dt><br>    <dd>1、安全性，当一个站点（b.a.com）被攻击后，另一个站点（c.a.com）会引起安全漏洞。</dd><br>    <dd>2、如果一个页面中引入多个iframe，要想能够操作所有iframe，必须都得设置相同domain。</dd><br></dl><br><a href="#" name="m2"></a><h3>2、动态创建script</h3><br><p><span class="highlight">虽然浏览器默认禁止了跨域访问，但并不禁止在页面中引用其他域的JS文件，并可以自由执行引入的JS文件中的function（包括操作cookie、Dom等等）</span>。根据这一点，可以方便地通过创建script节点的方法来实现完全跨域的通信。具体的做法可以参考YUI的<a target="_blank" href="http://developer.yahoo.com/yui/get/">Get Utility</a></p><br><p>这里判断script节点加载完毕还是蛮有意思的：ie只能通过script的readystatechange属性，其它浏览器是script的load事件。以下是部分判断script加载完毕的方法。</p><br><div class="rainman-code"><br><pre>js.onload = js.onreadystatechange = function() {<br>    if (!this.readyState || this.readyState === ‘loaded’ || this.readyState === ‘complete’) {<br>        // callback在此处执行<br>        js.onload = js.onreadystatechange = null;<br>    }<br>};</pre><br></div><br><a href="#" name="m3"></a><h3>3、利用iframe和location.hash</h3><br><p>这个办法比较绕，但是可以解决完全跨域情况下的脚步置换问题。原理是利用location.hash来进行传值。在url： <a href="http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（" target="_blank" rel="external">http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（</a><span class="gray">由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于a.com域名下的一个代理iframe；Firefox可以修改</span>）。同时在cs1.html上加一个定时器，隔一段时间来判断location.hash的值有没有变化，一点有变化则获取获取hash值。代码如下：</p><br><p>先是a.com下的文件cs1.html文件：</p><br><div class="rainman-code"><br><pre>function startRequest(){<br>    var ifr = document.createElement(‘iframe’);<br>    ifr.style.display = ‘none’;<br>    ifr.src = ‘<a href="http://www.cnblogs.com/lab/cscript/cs2.html#paramdo" target="_blank" rel="external">http://www.cnblogs.com/lab/cscript/cs2.html#paramdo</a>‘;<br>    document.body.appendChild(ifr);<br>}<br><br>function checkHash() {<br>    try {<br>        var data = location.hash ? location.hash.substring(1) : ‘’;<br>        if (console.log) {<br>            console.log(‘Now the data is ‘+data);<br>        }<br>    } catch(e) {};<br>}<br>setInterval(checkHash, 2000);</pre><br></div><br><p>cnblogs.com域名下的cs2.html:</p><br><div class="rainman-code"><br><pre>//模拟一个简单的参数处理操作<br>switch(location.hash){<br>    case ‘#paramdo’:<br>        callBack();<br>        break;<br>    case ‘#paramset’:<br>        //do something……<br>        break;<br>}<br><br>function callBack(){<br>    try {<br>        parent.location.hash = ‘somedata’;<br>    } catch (e) {<br>        // ie、chrome的安全机制无法修改parent.location.hash，<br>        // 所以要利用一个中间的cnblogs域下的代理iframe<br>        var ifrproxy = document.createElement(‘iframe’);<br>        ifrproxy.style.display = ‘none’;<br>        ifrproxy.src = ‘<a href="http://a.com/test/cscript/cs3.html#somedata" target="_blank" rel="external">http://a.com/test/cscript/cs3.html#somedata</a>‘;    <span class="green">// 注意该文件在”a.com”域下</span><br>        document.body.appendChild(ifrproxy);<br>    }<br>}</pre><br></div><br><p>a.com下的域名cs3.html</p><br><div class="rainman-code"><br><pre>//因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值<br>parent.parent.location.hash = self.location.hash.substring(1);</pre><br></div><br><p>当然这样做也存在很多缺点，诸如数据直接暴露在了url中，数据容量和类型都有限等……</p><br><a href="#" name="m4"></a><h3>4、window.name实现的跨域数据传输</h3><br><p>文章较长列在此处不便于阅读，详细请看&nbsp;<a target="_blank" href="http://www.cnblogs.com/rainman/archive/2011/02/21/1960044.html">window.name实现的跨域数据传输</a>。</p><br><a href="#" name="m5"></a><h3>5、使用HTML5 postMessage</h3><br><p><a href="http://dev.w3.org/html5/spec/" target="_blank">HTML5</a>中最酷的新功能之一就是 <a href="http://www.whatwg.org/specs/web-apps/current-work/#crossDocumentMessages" target="_blank">跨文档消息传输Cross Document Messaging</a>。下一代浏览器都将支持这个功能：Chrome 2.0+、Internet Explorer 8.0+, Firefox 3.0+, Opera 9.6+, 和 Safari 4.0+ 。 Facebook已经使用了这个功能，用postMessage支持基于web的实时消息传递。 </p><br><dl><br>    <dt>otherWindow.postMessage(message, targetOrigin);</dt><br>    <dd><span class="green">otherWindow: </span> 对接收信息页面的window的引用。可以是页面中iframe的contentWindow属性；<a href="https://developer.mozilla.org/en/DOM/window.open" target="_blank">window.open</a>的返回值；通过name或下标从<a href="https://developer.mozilla.org/en/DOM/window.frames" target="_blank">window.frames</a>取到的值。<br><br>    <span class="green">message: </span> 所要发送的数据，string类型。<br><br>    <span class="green">targetOrigin: </span> 用于限制otherWindow，“*”表示不作限制</dd><br></dl><br><p>a.com/index.html中的代码：</p><br><div class="rainman-code"><br><pre>&lt;iframe id=”ifr” src=”b.com/index.html”&gt;&lt;/iframe&gt;<br>&lt;script type=”text/javascript”&gt;<br>window.onload = function() {<br>    var ifr = document.getElementById(‘ifr’);<br>    var targetOrigin = ‘<a href="http://b.com" target="_blank" rel="external">http://b.com</a>‘;  <span class="green">// 若写成’<a href="http://b.com/c/proxy.html&#39;效果一样" target="_blank" rel="external">http://b.com/c/proxy.html&#39;效果一样</a></span><br>                                        <span class="green">// 若写成’<a href="http://c.com&#39;就不会执行postMessage了" target="_blank" rel="external">http://c.com&#39;就不会执行postMessage了</a></span><br>    ifr.contentWindow.postMessage(‘I was there!’, targetOrigin);<br>};<br>&lt;/script&gt;</pre><br></div><br><p>b.com/index.html中的代码：</p><br><div class="rainman-code"><br><pre>&lt;script type=”text/javascript”&gt;<br>    window.addEventListener(‘message’, function(event){<br>        // 通过origin属性判断消息来源地址<br>        if (event.origin == ‘<a href="http://a.com" target="_blank" rel="external">http://a.com</a>‘) {<br>            alert(event.data);    // 弹出”I was there!”<br>            alert(event.source);  // 对a.com、index.html中window对象的引用<br>                                  // 但由于同源策略，这里event.source不可以访问window对象<br>        }<br>    }, false);<br>&lt;/script&gt;</pre><br></div><br><p>参考文章：<a href="http://www.grati.org/?p=429" target="_blank">《精通HTML5编程》第五章——跨文档消息机制</a>、<a href="https://developer.mozilla.org/en/dom/window.postmessage" target="_blanks">https://developer.mozilla.org/en/dom/window.postmessage</a></p><br><a href="#" name="m6"></a><h3>6、利用flash</h3><br><p>这是从YUI3的IO组件中看到的办法，具体可见<a target="_blank" href="http://developer.yahoo.com/yui/3/io/">http://developer.yahoo.com/yui/3/io/</a>。<br>可以看在Adobe Developer Connection看到更多的跨域代理文件规范：<a target="_blank" href="http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html">ross-Domain Policy File Specifications</a>、<a target="_blank" href="http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html">HTTP Headers Blacklist</a>。</p><br></div></div>
       </div>
       <footer class="article-footer">
-        <a data-url="http://blog.css6.com/2015/10/10/JS前端数据加密方案/" data-id="cigw36how003flfrlwgr4c780" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        <a data-url="http://blog.css6.com/2015/11/12/浏览器中javascript跨域解决方案/" data-id="cigw36hnp000tlfrl3bvz835f" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
         
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/加密/">加密</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/跨域/">跨域</a></li></ul>
 
       </footer>
     </div>
@@ -192,7 +117,7 @@
   
   <section id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-JS前端数据加密方案" data-title="JS前端数据加密方案" data-url="http://blog.css6.com/2015/10/10/JS前端数据加密方案/"></div>
+    <div class="ds-thread" data-thread-key="post-浏览器中javascript跨域解决方案" data-title="浏览器中javascript跨域解决方案" data-url="http://blog.css6.com/2015/11/12/浏览器中javascript跨域解决方案/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -228,20 +153,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/12/浏览器中javascript跨域解决方案/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          浏览器中javascript跨域解决方案
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
   
-  
-    <a href="/2015/09/17/升级IOS9-吐槽/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/10/10/JS前端数据加密方案/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">升级IOS9,吐槽</p>
+      <p class="article-nav-title">JS前端数据加密方案</p>
       <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
     </a>
   
