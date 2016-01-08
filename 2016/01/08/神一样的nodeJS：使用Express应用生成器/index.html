@@ -3,27 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>神一样的nodeJS之2：安装express框架 | 凯歌的博客</title>
+  <title>神一样的nodeJS之3：使用Express 应用生成器 | 凯歌的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Node可以实现底层的HTTP/HTTPS服务器，可以用原生的JS和node内置的API开发原生的web/app，这是一个相当庞大的工作。
-如果你选择从零开始，这就意味着每个功能和方法都要从零开始，其实我们并没有必要这样做，浪费时间！而且开发出来的程序Bug很多。
-Node有着比较完善的生态链，有五花八门的好框架、模块、中间件供我们使用，使用它们将为我们节省很多各种成本，我们何乐而不为呢？
-在为数">
+  <meta name="description" content="全局安装 express-generator：
+1$ npm install express-generator -g
+安装完成后测试下是否安装成功：
+1$ express -h
+express-generator程序全部是express为命令头的，我现在装的是最新 4.13.1 版本。
+创建应用：
+1$ express myweb
+可以看到提示，已经生成了很多文件夹和文件cd进入myweb文件夹">
 <meta property="og:type" content="article">
-<meta property="og:title" content="神一样的nodeJS之2：安装express框架">
-<meta property="og:url" content="http://blog.css6.com/2016/01/08/神一样的nodeJS-安装express框架/index.html">
+<meta property="og:title" content="神一样的nodeJS之3：使用Express 应用生成器">
+<meta property="og:url" content="http://blog.css6.com/2016/01/08/神一样的nodeJS：使用Express应用生成器/index.html">
 <meta property="og:site_name" content="凯歌的博客">
-<meta property="og:description" content="Node可以实现底层的HTTP/HTTPS服务器，可以用原生的JS和node内置的API开发原生的web/app，这是一个相当庞大的工作。
-如果你选择从零开始，这就意味着每个功能和方法都要从零开始，其实我们并没有必要这样做，浪费时间！而且开发出来的程序Bug很多。
-Node有着比较完善的生态链，有五花八门的好框架、模块、中间件供我们使用，使用它们将为我们节省很多各种成本，我们何乐而不为呢？
-在为数">
-<meta property="og:updated_time" content="2016-01-08T10:01:14.000Z">
+<meta property="og:description" content="全局安装 express-generator：
+1$ npm install express-generator -g
+安装完成后测试下是否安装成功：
+1$ express -h
+express-generator程序全部是express为命令头的，我现在装的是最新 4.13.1 版本。
+创建应用：
+1$ express myweb
+可以看到提示，已经生成了很多文件夹和文件cd进入myweb文件夹">
+<meta property="og:updated_time" content="2016-01-08T10:16:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="神一样的nodeJS之2：安装express框架">
-<meta name="twitter:description" content="Node可以实现底层的HTTP/HTTPS服务器，可以用原生的JS和node内置的API开发原生的web/app，这是一个相当庞大的工作。
-如果你选择从零开始，这就意味着每个功能和方法都要从零开始，其实我们并没有必要这样做，浪费时间！而且开发出来的程序Bug很多。
-Node有着比较完善的生态链，有五花八门的好框架、模块、中间件供我们使用，使用它们将为我们节省很多各种成本，我们何乐而不为呢？
-在为数">
+<meta name="twitter:title" content="神一样的nodeJS之3：使用Express 应用生成器">
+<meta name="twitter:description" content="全局安装 express-generator：
+1$ npm install express-generator -g
+安装完成后测试下是否安装成功：
+1$ express -h
+express-generator程序全部是express为命令头的，我现在装的是最新 4.13.1 版本。
+创建应用：
+1$ express myweb
+可以看到提示，已经生成了很多文件夹和文件cd进入myweb文件夹">
   
   
   <link rel="icon" href="/favicon.png">
@@ -89,7 +101,7 @@ Node有着比较完善的生态链，有五花八门的好框架、模块、中�
             </div>
             <div class="main-body-content">
               
-  <article id="post-神一样的nodeJS-安装express框架" class="article article-single article-type-post" itemscope itemprop="blogPost">
+  <article id="post-神一样的nodeJS：使用Express应用生成器" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
       <!--  -->
       
@@ -97,44 +109,41 @@ Node有着比较完善的生态链，有五花八门的好框架、模块、中�
           
   
     <h1 class="article-title" itemprop="name">
-      神一样的nodeJS之2：安装express框架
+      神一样的nodeJS之3：使用Express 应用生成器
     </h1>
   
 
         </header>
       
       <p class="article-byline">
-        <a href="/2016/01/08/神一样的nodeJS-安装express框架/" class="article-date">
-  <time datetime="2016-01-08T08:20:28.000Z" itemprop="datePublished">2016-01-08</time>
+        <a href="/2016/01/08/神一样的nodeJS：使用Express应用生成器/" class="article-date">
+  <time datetime="2016-01-08T09:54:09.000Z" itemprop="datePublished">2016-01-08</time>
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <p>Node可以实现底层的HTTP/HTTPS服务器，可以用原生的JS和node内置的API开发原生的web/app，这是一个相当庞大的工作。</p>
-<p>如果你选择从零开始，这就意味着每个功能和方法都要从零开始，其实我们并没有必要这样做，浪费时间！而且开发出来的程序Bug很多。</p>
-<p>Node有着比较完善的生态链，有五花八门的好框架、模块、中间件供我们使用，使用它们将为我们节省很多各种成本，我们何乐而不为呢？</p>
-<p>在为数众多的技术栈中，我选择express作为我们NodeJS开发的基础框架，至于为什么：我觉得它很好，被很多人接受，但我并不是跟风，信我吧。</p>
-<p>我们先来为项目创建一个文件目录:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir app</span><br></pre></td></tr></table></figure>
-<p>进入到你创建的目录:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd app</span><br></pre></td></tr></table></figure>
-<p>创建package.json 配置文件:</p>
+        <p>全局安装 express-generator：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express-generator -g</span><br></pre></td></tr></table></figure>
+<p>安装完成后测试下是否安装成功：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ express -h</span><br></pre></td></tr></table></figure>
+<p>express-generator程序全部是express为命令头的，我现在装的是最新 4.13.1 版本。</p>
+<p>创建应用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ express myweb</span><br></pre></td></tr></table></figure>
+<p>可以看到提示，已经生成了很多文件夹和文件<br>cd进入myweb文件夹：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd myweb</span><br></pre></td></tr></table></figure>
+<p>现在我们来npm加载依赖文件，这时候就体现了package.json 配置文件的重要性了吧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm init</span><br></pre></td></tr></table></figure>
-<p>程序会提示你填一些选项,如果你想做一个正式的项目，请认真逐项填写:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">name: (app) app</span><br><span class="line">version: (<span class="number">1.0</span><span class="number">.0</span>) </span><br><span class="line">description: 这是我的第一个app</span><br><span class="line">entry point: (index.js) </span><br><span class="line">test command: </span><br><span class="line">git repository: </span><br><span class="line">keywords: app</span><br><span class="line">author: json</span><br><span class="line">license: (ISC) MIT</span><br></pre></td></tr></table></figure>
-<p>然后会给你在目录中生成一个package.json文件，这个文件对于你以后发布和迁移很重要，npm可以将依赖文件都自动填写在这个文件中：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"ls"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"这是我的第一个app"</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"keywords"</span>: [</span><br><span class="line">    <span class="string">"app"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"json"</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"MIT"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>安装express框架:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install express --save</span><br></pre></td></tr></table></figure>
-<p>记住，一定要添加–save参数，这样才会在package.json中配置此框架的依赖</p>
-<p>好了，看看你的目录吧，增加了一个node_modules名字的文件夹，里面有一个express文件夹包含着很多文件。</p>
-<p>恭喜你已经完成了express框架的安装！</p>
+<p>跟上一节一样，也会提示你输入应用的配置信息，随便填写一下吧，你的应用基本结构框架生成了。</p>
+<p>启动你的应用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ DEBUG=myweb:* npm start</span><br></pre></td></tr></table></figure>
+<p>此为debug模式，从此开启你的express开发之门吧。</p>
 
       </div>
       <footer class="article-footer">
-        <a data-url="http://blog.css6.com/2016/01/08/神一样的nodeJS-安装express框架/" data-id="cij5j0fgm00403frlcg4a6gob" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        <a data-url="http://blog.css6.com/2016/01/08/神一样的nodeJS：使用Express应用生成器/" data-id="cij5j3lce00003zrl0j2875be" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
         
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express-generator/">express-generator</a></li></ul>
 
       </footer>
     </div>
@@ -145,7 +154,7 @@ Node有着比较完善的生态链，有五花八门的好框架、模块、中�
   
   <section id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-神一样的nodeJS-安装express框架" data-title="神一样的nodeJS之2：安装express框架" data-url="http://blog.css6.com/2016/01/08/神一样的nodeJS-安装express框架/"></div>
+    <div class="ds-thread" data-thread-key="post-神一样的nodeJS：使用Express应用生成器" data-title="神一样的nodeJS之3：使用Express 应用生成器" data-url="http://blog.css6.com/2016/01/08/神一样的nodeJS：使用Express应用生成器/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -181,20 +190,10 @@ Node有着比较完善的生态链，有五花八门的好框架、模块、中�
     
 <nav id="article-nav">
   
-    <a href="/2016/01/08/神一样的nodeJS：使用Express应用生成器/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <p class="article-nav-title">
-        
-          神一样的nodeJS之3：使用Express 应用生成器
-        
-      </p>
-      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
   
-  
-    <a href="/2016/01/07/神一样的nodeJS：nodeJS 起步/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/08/神一样的nodeJS-安装express框架/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">神一样的nodeJS之1：nodeJS 起步</p>
+      <p class="article-nav-title">神一样的nodeJS之2：安装express框架</p>
       <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
     </a>
   
