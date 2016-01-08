@@ -64,7 +64,7 @@
               
                 <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
               
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/前端笔记/">前端笔记</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/吐槽/">吐槽</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术文摘/">技术文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/生活随笔/">生活随笔</a></li></ul>
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/nodeJS/">nodeJS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/前端笔记/">前端笔记</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/吐槽/">吐槽</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术文摘/">技术文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/生活随笔/">生活随笔</a></li></ul>
                   
                 <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/2014/11/25/about-me/">关于</a></li>
               
@@ -114,12 +114,12 @@
 <p>这篇文章带你尽快走进JavaScript的世界——前提是你有一些编程经验的话。本文试图描述这门语言的最小子集。我给这个子集起名叫做“JavaScript简易教程”，并推荐准备深入阅读细节和高级技巧之前的新手阅读。心急吃不了热豆腐。文章的最后提出如何进一步学习。</p>
 <p><strong>警告：</strong>下面是我所描述的规则集和最佳实践。我喜欢整洁清晰（例如，你可以随时通过下面的目录快速导航）。规则是无懈可击的，但不可避免——每个人的理解不同。</p><br><a id="more"></a><br><h2 id="section">目录</h2><ol><br>  <li><a href="#sect_conventions">本文约定</a></li><br>  <li><a href="#sect_nature">语言的性质</a></li><br>  <li><a href="#sect_syntax">语法</a></li><br>  <li><a href="#sect_variables_assignment">变量和赋值</a></li><br>  <li><a href="#sect_values">值</a></li><br>  <li><a href="#sect_booleans">布尔</a></li><br>  <li><a href="#sect_numbers">数字</a></li><br>  <li><a href="#sect_strings">字符串</a></li><br>  <li><a href="#sect_statements">语句</a></li><br>  <li><a href="#sect_functions">函数</a></li><br>  <li><a href="#sect_exceptions">异常处理</a></li><br>  <li><a href="#sect_strict_mode">严格模式</a></li><br>  <li><a href="#sect_var_scope_closures">变量作用域和闭包</a></li><br>  <li><a href="#sect_objects">对象和继承</a></li><br>  <li><a href="#sect_arrays">数组</a></li><br>  <li><a href="#sect_regexp">正则表达式</a></li><br>  <li><a href="#sect_math">数学</a></li><br>  <li><a href="#sect_standard_library">标准库的其他功能</a></li><br>  <li><a href="#sect_learn_next">下一步学什么？</a></li><br></ol><br><h2 id="sect_conventions">本文约定（Conventions used in this blog post）</h2><br><h3 id="command-line-interaction">命令行交互（Command line interaction）</h3><br><p>每当我介绍一个新概念，我都会尝试通过JavaScript命令行进行演示。像下面这样：</p><br><pre><code>&gt; 3 + 4<br>  7<br></code></pre><br><p>大于号后面的文本是用户输入内容。其他的都是JavaScript引擎的输出内容。此外，也可以使用console.log()来向控制台打印数据（这方法可以在大部分JavaScript引擎中工作，包括Node.js）.</p><br><h3 id="finding-documentation">查找文档（Finding documentation）</h3><br><p>有时你看到一些函数或方法有超链接，你应该清楚他们的工作原理。如果没有，可以在<a href="https://developer.mozilla.org/en-US/" target="_blank" rel="external">Mozilla Developer Network</a> (MDN)上查看细节，你也可以使用Google在MDN上查找文档。例如，下面是通过Google搜索数组的push()方法的例子：</p><br><p><a href="https://www.google.com/search?q=mdn+array+push" target="_blank" rel="external">mdn array push</a></p><br><h2 id="sect_nature">语言的性质（The nature of the language）</h2><br><p>本节对JavaScript的性质简要介绍，以帮助你理解一些疑问。</p><br><h3 id="javascript--ecmascriptjavascript-versus-ecmascript">JavaScript 和 ECMAScript（JavaScript versus ECMAScript）</h3><br><p>编程语言称为JavaScript，语言标准称为ECMAScript。他们有不同名字的原因是因为“Java”已经被注册为商标（属于Oracle）。目前，只有Mozilla被正式允许使用“JavaScript”名称，因为很久以前他们等到一份许可。因此，开放的语言标准拥有不同的名字。当前的JavaScript版本是ECMAScript 5，ECMAScript 6当前是<a href="http://www.2ality.com/2012/11/guide-esnext.html" target="_blank" rel="external">开发版</a>。</p><br><h3 id="influences">影响（Influences）</h3><br><p>JavaScript之父，Brendan Eich 别无选择必须<a href="http://yanhaijing.com/javascript/2013/06/22/javascript-designing-a-language-in-10-days" target="_blank" rel="external">迅速创建一门语言</a>。（或者，更糟糕，Netscape将使用其他技术）。他借鉴了几门其他语言：</p><br><ul><br>  <li>JavaScript借鉴了Java的语法和如何区分<a href="#sect_prim_vs_obj">原始值和对象</a>。<br>JavaScript的函数设计受Scheme和AWK的启发——他们（函数）都是第一类（first-class）对象，并且在语言中广泛使用。<a href="#sect_closures">闭包</a>使他们变成强大的工具。</li><br>  <li>Self影响了JavaScript独一无二的面向对象编程(OOP)风格。它的<a href="http://www.2ality.com/2011/06/prototypes-as-classes.html" target="_blank" rel="external">核心思想</a>（在这里我们没有提到）非常优雅，基于此创建的语言非常少。但一个<a href="#sect_constructors">简单的模式</a>（见后面）照顾大部分用例。JavaScript面向对象编程的杀手级特性是你可以直接创建对象。不需要先创建类或其他类似的东西。</li><br>  <li>Perl和Python<a href="http://www.2ality.com/2013/02/javascript-influences.html" target="_blank" rel="external">影响了</a>JavaScript字符串，数组和正则表达式的操作。</li><br></ul><br><p>JavaScript直到ECMAScript 3才加入异常处理，这解释了为什么这门语言经常自动转换类型和经常静默失败：它最初不能抛出异常。</p><br><p>一方面，JavaScript有很多怪癖，并且确实很多功能（块级变量作用域（block-sciped variables），模块（modules）支持子类型（subtyping）等）。另一方面，它有几个非常强大的特性，允许你弥补上面的问题。在其他语言中，你要学习语言特性。在JavaScript中，你需要经常学习模式代替。</p><br><h3 id="further-reading">深入阅读（Further reading）</h3><br><ul><br>  <li><a href="http://www.2ality.com/2011/03/javascript-how-it-all-began.html" target="_blank" rel="external">JavaScript: how it all began</a></li><br>  <li><a href="http://www.2ality.com/2012/09/javascript-glass-half-full.html" target="_blank" rel="external">JavaScript: the glass is half full</a> [什么让JavaScript如此吸引人？]</li><br>  <li><a href="http://www.2ality.com/2011/06/ecmascript.html" target="_blank" rel="external">ECMAScript: ES.next versus ES 6 versus ES Harmony</a> [包括ECMAScript版本的一个简史]</li><br>  <li><a href="http://www.2ality.com/2013/02/javascript-influences.html" target="_blank" rel="external">Perl and Python influences in JavaScript</a></li><br>  <li><a href="http://yanhaijing.com/javascript/2013/06/22/javascript-designing-a-language-in-10-days" target="_blank" rel="external">Javascript:10天设计一门语言</a></li><br></ul><br><h2 id="sect_syntax">语法（Syntax）</h2><br><p>这节介绍一些JavaScript的基本语法规则。</p><br><h3 id="statements-versus-expressions">语句和表达式（Statements versus expressions）</h3><br><p>了解JavaScript的语法，这有助于了解（简而言之），它有两个主要的语法类型：语句和表达式。</p><br><ul><br>  <li>语句通常“做某些事情”。程序是一组语句序列。举个例子，下面声明（创建）一个  变量 foo：<br>var foo;</li><br>  <li>表达式产生值。他们通常位于赋值操作的右边，函数参数，等。举个例子：<br>3 <em> 7</em></li><br></ul><br><p>语句和表达式之间的区别最好通过实例说明，JavaScript（像Java）有两种不同的方式实现if-then-else。一种是用语句：</p><br><pre><code>var x;<br>if (y &gt;= 0) {<br>    x = y;<br>} else {<br>    x = -y;<br>}<br></code></pre><br><p>另一种是表达式：</p><br><pre><code>var x = y &gt;= 0 ? y : -y;<br></code></pre><br><p>你可以将后者作为函数参数（但前者不行）：</p><br><pre><code>myFunction(y &gt;= 0 ? y : -y)<br></code></pre><br><p>最后，每当JavaScript期待一个语句，你也可以用一个表达式代替。例如：</p><br><pre><code>foo(bar(7, 1));<br></code></pre><br><p><code>foo(…)；</code>是一个语句（也叫做表达式语句），<code>bar(7, 1)</code>是一个表达式。他们都实现函数调用。</p><br><h3 id="control-flow-statements-and-blocks">流程控制语句和语句块（Control flow statements and blocks）</h3><br><p>流程控制语句，其语句体可以是单条语句。举两个例子：</p><br><pre><code>if (obj !== null) obj.foo();<br>    while (x &gt; 0) x–;<br></code></pre><br><p>然而，任何语句总能被语句块代替，花括号包含零或多条语句。因此，你也可以这样写：</p><br><pre><code>if (obj !== null) {<br>    obj.foo();<br>}<br><br>while (x &gt; 0) {<br>    x–;<br>}<br></code></pre><br><p>在本文中，我们只是用后一种方式。</p><br><h3 id="semicolons">分号（Semicolons）</h3><br><p>分号在JavaScript中是<a href="http://www.2ality.com/2011/05/semicolon-insertion.html" target="_blank" rel="external">可选的</a>。但省略他们可能带来意想不到的结果，所以我建议你不要那样做。</p><br><p>正如上面所看到的，分号作为语句的结尾，但语句块不需要。仅有一种情况下你将见到块后面有分号：函数表达式后面的函数体块。表达式作为语句的结尾，后面是分号：</p><br><pre><code>var x = 3  7;<br>var f = function () { };<br></code></pre><br><h3 id="comments">注释（Comments）</h3><br><p>JavaScript有两种注释方式：单行注释和多行注释。单行注释以//开头，以换行符结尾：</p><br><pre><code>x++; // 单行（single-line）注释<br></code></pre><br><p>多行注释用/<em>*/包裹</em></p><br><pre><code>/<br> 这是多行注释<br> 多行哦<br> */<br></code></pre><br><h3 id="section-1">深入阅读</h3><br><ul><br>  <li><a href="http://www.2ality.com/2012/09/expressions-vs-statements.html" target="_blank" rel="external">Expressions versus statements in JavaScript</a></li><br>  <li><a href="http://www.2ality.com/2011/05/semicolon-insertion.html" target="_blank" rel="external">Automatic semicolon insertion in JavaScript</a></li><br></ul><br><h2 id="sect_variables_assignment">变量和赋值（Variables and assignment）</h2><br><p>JavaScript中的变量在使用之前必须先声明：</p><br><pre><code>var foo;  // 声明变量“foo”<br></code></pre><br><h3 id="assignment">赋值（Assignment）</h3><br><p>你可以在生命变量的同时给它赋值：</p><br><pre><code>var foo = 6;<br></code></pre><br><p>你也可以给已经存在的变量重新赋值：</p><br><pre><code>foo = 4;  // 更改变量的值<br></code></pre><br><h3 id="compount-assignment-operators">复合赋值操作符（Compount assignment operators）</h3><br><p>有很多复合赋值操作符，例如+=。下面的两个赋值操作等价：</p><br><pre><code>x += 1;<br>x = x + 1;<br></code></pre><br><h3 id="identifiers">标识符和变量名（Identifiers and variable names）</h3><br><p>标识符就是事物的名字，在JavaScript中他们扮演不同的语法角色。例如，变量的名称是一个标识符。</p><br><p>大体上，标识符的第一个字符可以是任何Unicode字符，美元标志符（$）或下划线（_）。后面的字符可以是任意字符和数字。因此，下面全是合法的标识符：</p><br><pre><code>arg0<br>_tmp<br>$elem<br>π<br></code></pre><br><p>一些标识符是“保留关键字”——他们是语法的一部分，不能用作变量名：</p><br><blockquote><br>  <p>arguments break case catch class const continue debugger default delete do else enum eval export extends false finally for function if implements import in instanceof interface let new null package private protected public return static super switch this throw true try typeof var void while with yield</p><br></blockquote><br><p>从技术上讲，下面三个标识符不是保留字，但也不应该作为变量名：</p><br><blockquote><br>  <p>Infinity NaN undefined</p><br></blockquote><br><h3 id="section-2">深入阅读</h3><br><ul><br>  <li><a href="http://mathiasbynens.be/notes/javascript-identifiers" target="_blank" rel="external">Valid JavaScript variable names</a> [by Mathias Bynens]</li><br></ul><br><h2 id="sect_values">值（Values）</h2><br><p>JavaScript有所有我们期待的编程语言值类型：布尔，数字，字符串，数组等。JavaScript中的所有值都有属性。每个属性有一个键（或名字）和一个值。考虑记录的域（fields of record）。你可以使用点（.）操作符读取属性：</p><br><pre><code>value.propKey<br></code></pre><br><p>举个例子：字符串“abc”有属性lenght（长度）。</p><br><pre><code> &gt; var str = ‘abc’;<br> &gt; str.length<br>   3<br></code></pre><br><p>上面的代码也可以写成下面这样：</p><br><pre><code>&gt; ‘abc’.length<br>  3<br></code></pre><br><p>点操作符也可以用来给属性赋值：</p><br><pre><code> &gt; var obj = {};  // 空对象<br> &gt; obj.foo = 123; // 创建属性“foo”，设置它为123<br>   123<br> &gt; obj.foo<br>   123<br></code></pre><br><p>你也可以通过它（.）调用方法：</p><br><pre><code>&gt; ‘hello’.toUpperCase()<br>  ‘HELLO’<br></code></pre><br><p>上面，我们在值“hello”上面调用方法 toUpperCase()。</p><br><h3 id="sect_prim_vs_obj">原始类型值和对象（Primitive values versus objects）</h3><br><p>JavaScript定义了不同值之间的区别：</p><br><ul><br>  <li>原始值包括：boolean，number，string，null和undefined，</li><br>  <li>所有其他的值都是对象。实际上对象被定义为——所有不为原始类型的值。</li><br></ul><br><p>两者之间的主要区别在于他们是如何被比较的：每一个对象有一个独一无二的标志，并且仅和自己相等：</p><br><pre><code>&gt; var obj1 = {};  // 一个空对象<br>&gt; var obj2 = {};  // 另一个空对象<br>&gt; obj1 === obj2<br>  false<br>&gt; obj1 === obj1<br>  true<br></code></pre><br><p>相反，所有原始值只要编码值相同就被认为是相同的：</p><br><pre><code>&gt; var prim1 = 123;<br>&gt; var prim2 = 123;<br>&gt; prim1 === prim2<br>  true<br></code></pre><br><p>接下来的两节介绍原始值和对象的更多细节。</p><br><h3 id="primitive-values">原始类型值（Primitive values）</h3><br><p>下面的全是原始类型值（简称：原始值）：</p><br><ul><br>  <li><a href="#sect_booleans">布尔类型</a>：true，false</li><br>  <li><a href="#sect_numbers">数字类型</a>：1736，1.351</li><br>  <li><a href="#sect_strings">字符串类型</a>: ‘abc’，”abc”</li><br>  <li>两个“<a href="#sect-non-values">无值（non-values）</a>”：undefined，null</li><br></ul><br><p>原始值的特征：</p><br><ul><br>  <li><br>    <p><strong>值做比较时：</strong>“内容”做比较。</p>
 
-<pre><code>&lt;pre&gt;&lt;code&gt;  &amp;gt; <span class="number">3</span> === <span class="number">3</span>
-<span class="literal">true</span>
+<pre><code>&lt;pre&gt;&lt;code&gt;  &amp;gt; 3 === 3
+true
 </code></pre><p>  &gt; ‘abc’ === ‘abc’<br>    true<br><br>  </p></li><br>  <li><br>    <p><strong>无法更改：</strong>值的属性无法更改，无法添加和移除属性。</p><p></p>
-<pre><code>&lt;pre&gt;&lt;code&gt;  <span class="subst">&amp;</span><span class="literal">gt</span>; <span class="built_in">var</span> str = <span class="string">'abc'</span>;
+<pre><code>&lt;pre&gt;&lt;code&gt;  &amp;gt; var str = &apos;abc&apos;;
 </code></pre><p>  &gt; str.foo = 3; // try to create property <code>foo</code> ⇒ no effect<br>  &gt; str.foo  // unknown property<br>    undefined<br></p>
-<pre><code><span class="tag">&lt;<span class="title">p</span>&gt;</span>(获取未知属性总返回undefined)<span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<pre><code>&lt;p&gt;(获取未知属性总返回undefined)&lt;/p&gt;
 </code></pre><p>  </p></li><br>  <li><br>    <p><strong>原始值的集合是固定的（fixed set of values）：</strong>你不能自定义原始值。</p><br>  </li><br></ul><p></p>
 <h3 id="objects">对象（Objects）</h3><br><p>所有非原始值（non-primitive）的值都是对象。最常见的几种对象类型是：</p><br><ul><br>  <li><br>    <p><a href="#sect_objects">简单对象</a>（类型是Object）能通过对象字面量创建：</p><br><br>    <p>{<br>      firstName: ‘Jane’,<br>      lastName: ‘Doe’<br>  }</p><br><br>    <p>上面的对象有两个属性：firstName属性的值是“Jane”，lastName属性的值是“Doe”。</p><br>  </li><br>  <li><br>    <p><a href="#sect_arrays">数组</a>（类型是 Array）能通过数组字面量创建：</p><br><br>    <p>[ ‘apple’, ‘banana’, ‘cherry’ ]</p><br><br>    <p>上面的数组有三个元素，可以通过数字索引访问。例如“apple”的索引是0.</p><br>  </li><br>  <li><br>    <p><a href="#sect_regexp">正则表达式对象</a>（类型是 RegExp）能通过正则表达式字面量创建。</p><br><br>    <p>/^a+b+$/</p><br>  </li><br></ul><br><p>对象的特征：</p><br><ul><br>  <li><br>    <p><strong>比较的是引用：</strong>比较的是标识符，每个值有自己的标识符。</p><br><br>    <pre><code>  &gt; {} === {}  // 两个不同的空对象<br>    false<br><br>  &gt; var obj1 = {};<br>  &gt; var obj2 = obj1;<br>  &gt; obj1 === obj2<br>    true<br></code></pre><br>  </li><br>  <li><br>    <p><strong>默认可以更改。</strong></p><br><br>    <pre><code>   &gt; var obj = {};<br>   &gt; obj.foo = 123;<br>   &gt; obj.foo<br>     123<br></code></pre><br>  </li><br></ul><br><br><p>-<strong> 用户可扩展（user-extensible）：</strong>你可以通过<a href="#sect_constructors">构造函数</a>定义新的对象类型。</p><br><br><p><a href="#sect_arrays">数组</a>所有的数据结构（如）都是对象，但并不是所有的对象都是数据结构。例如：<a href="#sect_regexp">正则表达式是对象</a>，但不是一个数据结构。</p><br><br><h3 id="sect-non-values">undefined 和 null（undefined and null）</h3>
 
@@ -1202,7 +1202,7 @@ false
 <p><br><a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">颜海镜的博客</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="http://yanhaijing.com" property="cc:attributionName" rel="external" target="_blank">颜海镜</a> 创作，采用 <a rel="external" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。<br>基于<a xmlns:dct="http://purl.org/dc/terms/" href="http://yanhaijing.com" rel="external" target="_blank">http://yanhaijing.com</a>上的作品创作。<br></p><br><p><br>原文网址：<a href="http://yanhaijing.com/basejs/index.html" target="_blank" rel="external">http://yanhaijing.com/basejs/index.html</a><br></p><br><p><br>感谢您的阅读。<br></p>
       </div>
       <footer class="article-footer">
-        <a data-url="http://blog.css6.com/2014/11/26/javascript简明速成教程/" data-id="cij5fft6t0033qurlefbbsuhs" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        <a data-url="http://blog.css6.com/2014/11/26/javascript简明速成教程/" data-id="cij5hf3q6001j25rl324rys09" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
@@ -1293,28 +1293,9 @@ false
             </div>
             
             <div class="item-inner">
-              <p class="item-category"></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/nodeJS/">nodeJS</a></p>
               <p class="item-title"><a href="/2016/01/08/神一样的nodeJS-安装express框架/" class="title">神一样的nodeJS:安装express框架</a></p>
               <p class="item-date"><time datetime="2016-01-08T08:20:28.000Z" itemprop="datePublished">2016-01-08</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2016/01/07/神一样的nodeJS：nodeJS 起步/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/01/07/神一样的nodeJS：nodeJS 起步/" class="title">神一样的nodeJS：nodeJS 起步</a></p>
-              <p class="item-date"><time datetime="2016-01-07T07:51:54.000Z" itemprop="datePublished">2016-01-07</time></p>
             </div>
           </li>
         
@@ -1333,6 +1314,25 @@ false
             <div class="item-inner">
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/01/07/nodeJS-起步/" class="title">神一样的nodeJS：nodeJS 起步</a></p>
+              <p class="item-date"><time datetime="2016-01-07T07:51:54.000Z" itemprop="datePublished">2016-01-07</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/07/神一样的nodeJS：nodeJS 起步/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/nodeJS/">nodeJS</a></p>
+              <p class="item-title"><a href="/2016/01/07/神一样的nodeJS：nodeJS 起步/" class="title">神一样的nodeJS：nodeJS 起步</a></p>
               <p class="item-date"><time datetime="2016-01-07T07:51:54.000Z" itemprop="datePublished">2016-01-07</time></p>
             </div>
           </li>
@@ -1384,7 +1384,7 @@ false
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吐槽/">吐槽</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术文摘/">技术文摘</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/nodeJS/">nodeJS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吐槽/">吐槽</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术文摘/">技术文摘</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 

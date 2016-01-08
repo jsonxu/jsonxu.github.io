@@ -57,7 +57,7 @@
               
                 <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
               
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/前端笔记/">前端笔记</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/吐槽/">吐槽</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术文摘/">技术文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/生活随笔/">生活随笔</a></li></ul>
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/nodeJS/">nodeJS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/前端笔记/">前端笔记</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/吐槽/">吐槽</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术文摘/">技术文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/生活随笔/">生活随笔</a></li></ul>
                   
                 <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/2014/11/25/about-me/">关于</a></li>
               
@@ -106,53 +106,53 @@
         <p>记得2010年去阿里巴巴中文站面试前端，标哥(中文站的前端leader)面试我，其中有一道题就是如题，要求找出数组中的重复项。虽然当时面试的时候解答的不够满意，但是回头再看看这道题，还是比较有深意的。解答的思路很多，根据思路也大致能了解到面试者在JS方面的精通程度。</p>
 <p>后来也经常见人问起这个题如何解，我对这个题的印象很深刻，以至于我后来当leader以后也常考察面试者对此题的解答思路，思路好的面试者真是寥寥无几。</p>
 <p>下面就各种思路简单介绍下，希望给各位有所启发，祝大家面试都得高分，hoho~~</p>
-<pre><code><span class="keyword">var</span> ar = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'a'</span>,<span class="number">2</span>,<span class="string">'c'</span>,<span class="string">'xoxo'</span>,<span class="string">'ppp'</span>];  <span class="comment">//原始数组</span>
-<span class="keyword">var</span> new_ar = ar;
-<span class="keyword">var</span> <span class="built_in">len</span> = ar.length;  <span class="comment">//存储数组长度</span>
-<span class="keyword">var</span> ar2=[];  <span class="comment">//</span>
-<span class="keyword">var</span> k = <span class="number">0</span>;  <span class="comment">//判断器变量</span>
-<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="built_in">len</span>;i++){
-    <span class="keyword">for</span>(<span class="keyword">var</span> e=<span class="number">0</span>;e&lt;<span class="built_in">len</span>;e++){
-        <span class="keyword">if</span>(ar[i] == ar[e]){
-            k+=<span class="number">1</span>;
-            <span class="keyword">if</span>(k!==<span class="number">1</span>){
+<pre><code>var ar = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;a&apos;,2,&apos;c&apos;,&apos;xoxo&apos;,&apos;ppp&apos;];  //原始数组
+var new_ar = ar;
+var len = ar.length;  //存储数组长度
+var ar2=[];  //
+var k = 0;  //判断器变量
+for(var i=0;i&lt;len;i++){
+    for(var e=0;e&lt;len;e++){
+        if(ar[i] == ar[e]){
+            k+=1;
+            if(k!==1){
                 ar2.push(ar[i]);
             }
         }
     }
-    k=<span class="number">0</span>;
+    k=0;
 }
-ar2 = ar2.splice(<span class="number">0</span>,ar2.length/<span class="number">2</span>);
+ar2 = ar2.splice(0,ar2.length/2);
 
-alert(<span class="string">'重复的项是'</span>+ar2);<span class="comment">//前半段或后半段是重复项</span>
+alert(&apos;重复的项是&apos;+ar2);//前半段或后半段是重复项
 </code></pre><hr>
-<pre><code><span class="keyword">var</span> ar = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'a'</span>,<span class="number">2</span>,<span class="string">'c'</span>,<span class="string">'xoxo'</span>,<span class="string">'ppp'</span>];  <span class="comment">//原始数组</span>
+<pre><code>var ar = [&apos;a&apos;,&apos;b&apos;,&apos;c&apos;,&apos;d&apos;,&apos;a&apos;,2,&apos;c&apos;,&apos;xoxo&apos;,&apos;ppp&apos;];  //原始数组
 ar=ar.sort();
-<span class="keyword">var</span> ar2=[];
-<span class="keyword">var</span> len=ar.length;
-<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;len;i++)<span class="comment">{
+var ar2=[];
+var len=ar.length;
+for(var i=0;i&lt;len;i++){
     if(ar[i]==ar[i+1]){
         ar2.push(ar[i]);
-    }</span>
+    }
 }
-alert(<span class="string">'重复项是：'</span>+ ar2)
+alert(&apos;重复项是：&apos;+ ar2)
 </code></pre><hr>
-<pre><code>var arr =[<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">444</span>,<span class="number">5</span>,<span class="number">77</span>,<span class="number">444</span>,<span class="number">66</span>,<span class="number">6</span>,<span class="number">6</span>,<span class="number">6</span>];
+<pre><code>var arr =[1,2,2,3,3,444,5,77,444,66,6,6,6];
 Array.prototype.unique=function(){
   var hash={};
   var arr1=[];
-  <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.length;i++){
-    <span class="keyword">if</span> (!hash[<span class="keyword">this</span>[i]]){  <span class="comment">//判断如果哈希表里没有当前项</span>
-    hash[<span class="keyword">this</span>[i]]=<span class="literal">true</span>;
-    arr1.push(<span class="keyword">this</span>[i]);     <span class="comment">//把当前数组的当前项push到临时数组</span>
+  for (i=0;i&lt;this.length;i++){
+    if (!hash[this[i]]){  //判断如果哈希表里没有当前项
+    hash[this[i]]=true;
+    arr1.push(this[i]);     //把当前数组的当前项push到临时数组
     }
   } 
-<span class="keyword">return</span> arr1;
+return arr1;
 }
 </code></pre>
       </div>
       <footer class="article-footer">
-        <a data-url="http://blog.css6.com/2015/07/06/面试题解析-找出数组中重复项/" data-id="cij5fft550001qurlxw8lxwxl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        <a data-url="http://blog.css6.com/2015/07/06/面试题解析-找出数组中重复项/" data-id="cij5hf3r7004j25rlk40cdxly" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数组/">数组</a></li></ul>
@@ -243,28 +243,9 @@ Array.prototype.unique=function(){
             </div>
             
             <div class="item-inner">
-              <p class="item-category"></p>
+              <p class="item-category"><a class="article-category-link" href="/categories/nodeJS/">nodeJS</a></p>
               <p class="item-title"><a href="/2016/01/08/神一样的nodeJS-安装express框架/" class="title">神一样的nodeJS:安装express框架</a></p>
               <p class="item-date"><time datetime="2016-01-08T08:20:28.000Z" itemprop="datePublished">2016-01-08</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2016/01/07/神一样的nodeJS：nodeJS 起步/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/01/07/神一样的nodeJS：nodeJS 起步/" class="title">神一样的nodeJS：nodeJS 起步</a></p>
-              <p class="item-date"><time datetime="2016-01-07T07:51:54.000Z" itemprop="datePublished">2016-01-07</time></p>
             </div>
           </li>
         
@@ -283,6 +264,25 @@ Array.prototype.unique=function(){
             <div class="item-inner">
               <p class="item-category"></p>
               <p class="item-title"><a href="/2016/01/07/nodeJS-起步/" class="title">神一样的nodeJS：nodeJS 起步</a></p>
+              <p class="item-date"><time datetime="2016-01-07T07:51:54.000Z" itemprop="datePublished">2016-01-07</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/07/神一样的nodeJS：nodeJS 起步/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/nodeJS/">nodeJS</a></p>
+              <p class="item-title"><a href="/2016/01/07/神一样的nodeJS：nodeJS 起步/" class="title">神一样的nodeJS：nodeJS 起步</a></p>
               <p class="item-date"><time datetime="2016-01-07T07:51:54.000Z" itemprop="datePublished">2016-01-07</time></p>
             </div>
           </li>
@@ -334,7 +334,7 @@ Array.prototype.unique=function(){
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吐槽/">吐槽</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术文摘/">技术文摘</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/nodeJS/">nodeJS</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吐槽/">吐槽</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术文摘/">技术文摘</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
