@@ -5,19 +5,40 @@
   
   <title>浏览器中javascript跨域解决方案 | 凯歌的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是跨域1、document.domain+iframe的设置2、动态创建script3、利用iframe和location.hash4、window.name实现的跨域数据传输5、使用HTML5 postMessage6、利用flash
-本文来自网络（http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。什么是跨">
+  <meta name="description" content="什么是跨域
+1、document.domain+iframe的设置
+2、动态创建script
+3、利用iframe和location.hash
+4、window.name实现的跨域数据传输
+5、使用HTML5 postMessage
+6、利用flash
+
+本文来自网络（http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器中javascript跨域解决方案">
 <meta property="og:url" content="http://blog.css6.com/2015/11/12/浏览器中javascript跨域解决方案/index.html">
 <meta property="og:site_name" content="凯歌的博客">
-<meta property="og:description" content="什么是跨域1、document.domain+iframe的设置2、动态创建script3、利用iframe和location.hash4、window.name实现的跨域数据传输5、使用HTML5 postMessage6、利用flash
-本文来自网络（http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。什么是跨">
-<meta property="og:updated_time" content="2015-11-20T08:19:09.000Z">
+<meta property="og:description" content="什么是跨域
+1、document.domain+iframe的设置
+2、动态创建script
+3、利用iframe和location.hash
+4、window.name实现的跨域数据传输
+5、使用HTML5 postMessage
+6、利用flash
+
+本文来自网络（http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和">
+<meta property="og:updated_time" content="2016-01-12T07:20:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器中javascript跨域解决方案">
-<meta name="twitter:description" content="什么是跨域1、document.domain+iframe的设置2、动态创建script3、利用iframe和location.hash4、window.name实现的跨域数据传输5、使用HTML5 postMessage6、利用flash
-本文来自网络（http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。什么是跨">
+<meta name="twitter:description" content="什么是跨域
+1、document.domain+iframe的设置
+2、动态创建script
+3、利用iframe和location.hash
+4、window.name实现的跨域数据传输
+5、使用HTML5 postMessage
+6、利用flash
+
+本文来自网络（http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和">
   
   
   <link rel="icon" href="/favicon.png">
@@ -103,8 +124,90 @@
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <p><ul class="catalogue"><li style="padding-left:0px"><span><a href="#m0">什么是跨域</a></span></li><li style="padding-left:0px"><span><a href="#m1">1、document.domain+iframe的设置</a></span></li><li style="padding-left:0px"><span><a href="#m2">2、动态创建script</a></span></li><li style="padding-left:0px"><span><a href="#m3">3、利用iframe和location.hash</a></span></li><li style="padding-left:0px"><span><a href="#m4">4、window.name实现的跨域数据传输</a></span></li><li style="padding-left:0px"><span><a href="#m5">5、使用HTML5 postMessage</a></span></li><li style="padding-left:0px"><span><a href="#m6">6、利用flash</a></span></li></ul></p>
-<p>本文来自网络（<a href="http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。" target="_blank" rel="external">http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。</a></p><br><a href="#" name="m0"></a><h3>什么是跨域</h3><br><p>JavaScript出于安全方面的考虑，不允许跨域调用其他页面的对象。但在安全限制的同时也给注入iframe或是ajax应用上带来了不少麻烦。这里把涉及到跨域的一些问题简单地整理一下：</p><p>首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：</p><br><table class="border"><br><tbody><br><tr><br><th>URL</th><br><th>说明</th><br><th>是否允许通信</th><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></td><br><td>同一域名下</td><br><td>允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/lab/a.js" target="_blank" rel="external">http://www.a.com/lab/a.js</a><br><br><a href="http://www.a.com/script/b.js" target="_blank" rel="external">http://www.a.com/script/b.js</a></td><br><td>同一域名下不同文件夹</td><br><td>允许</td><br></tr><br><tr><br><td><a href="http://www.a.com:8000/a.js" target="_blank" rel="external">http://www.a.com:8000/a.js</a><br><br><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></td><br><td>同一域名，不同端口</td><br><td>不允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="https://www.a.com/b.js" target="_blank" rel="external">https://www.a.com/b.js</a></td><br><td>同一域名，不同协议</td><br><td>不允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="http://70.32.92.74/b.js" target="_blank" rel="external">http://70.32.92.74/b.js</a></td><br><td>域名和域名对应ip</td><br><td>不允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="http://script.a.com/b.js" target="_blank" rel="external">http://script.a.com/b.js</a></td><br><td>主域相同，子域不同</td><br><td>不允许</td><br></tr><br><tr><br><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a><br><br><a href="http://a.com/b.js" target="_blank" rel="external">http://a.com/b.js</a><br></td><br><td>同一域名，不同二级域名（同上）</td><br><td>不允许（cookie这种情况下也不允许访问）</td><br></tr><br><tr><br><td><a href="http://www.cnblogs.com/a.js" target="_blank" rel="external">http://www.cnblogs.com/a.js</a><br><br><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></td><br><td>不同域名</td><br><td>不允许</td><br></tr><br></tbody><br></table><br><dl><br>    <dt>特别注意两点：</dt><br>    <dd>第一，如果是协议和端口造成的跨域问题“前台”是无能为力的，</dd><br>    <dd>第二：在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。<br>“URL的首部”指window.location.protocol +window.location.host，也可以理解为“Domains, protocols and ports must match”。</dd><br></dl><br><p>接下来简单地总结一下在“前台”一般处理跨域的办法，后台proxy这种方案牵涉到后台配置，这里就不阐述了，有兴趣的可以看看yahoo的这篇文章：《<a target="_blank" href="http://developer.yahoo.com/javascript/howto-proxy.html">JavaScript: Use a Web Proxy for Cross-Domain XMLHttpRequest Calls</a>》</p><br><a href="#" name="m1"></a><h3>1、document.domain+iframe的设置</h3><br><p><span class="highlight">对于主域相同而子域不同的例子，可以通过设置document.domain的办法来解决</span>。具体的做法是可以在<a href="http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain" target="_blank" rel="external">http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain</a> = ‘a.com’；然后通过a.html文件中创建一个iframe，去控制iframe的contentDocument，这样两个js文件之间就可以“交互”了。当然这种办法只能解决主域相同而二级域名不同的情况，如果你异想天开的把script.a.com的domian设为alibaba.com那显然是会报错地！代码如下：</p><br><p>www.a.com上的a.html</p><br><div class="rainman-code"><br><pre>document.domain = ‘a.com’;<br>var ifr = document.createElement(‘iframe’);<br>ifr.src = ‘<a href="http://script.a.com/b.html" target="_blank" rel="external">http://script.a.com/b.html</a>‘;<br>ifr.style.display = ‘none’;<br>document.body.appendChild(ifr);<br>ifr.onload = function(){<br>    var doc = ifr.contentDocument || ifr.contentWindow.document;<br>    // 在这里操纵b.html<br>    alert(doc.getElementsByTagName(“h1”)[0].childNodes[0].nodeValue);<br>};</pre><br></div><br><p>script.a.com上的b.html</p><br><div class="rainman-code"><br><pre>document.domain = ‘a.com’;</pre><br></div><br><p>这种方式适用于{www.kuqin.com, kuqin.com, script.kuqin.com, css.kuqin.com}中的任何页面相互通信。</p><br><p>备注：某一页面的domain默认等于window.location.hostname。主域名是不带www的域名，例如a.com，主域名前面带前缀的通常都为二级域名或多级域名，例如www.a.com其实是二级域名。<br>domain只能设置为主域名，不可以在b.a.com中将domain设置为c.a.com。</p><br><dl><br>    <dt>问题：</dt><br>    <dd>1、安全性，当一个站点（b.a.com）被攻击后，另一个站点（c.a.com）会引起安全漏洞。</dd><br>    <dd>2、如果一个页面中引入多个iframe，要想能够操作所有iframe，必须都得设置相同domain。</dd><br></dl><br><a href="#" name="m2"></a><h3>2、动态创建script</h3><br><p><span class="highlight">虽然浏览器默认禁止了跨域访问，但并不禁止在页面中引用其他域的JS文件，并可以自由执行引入的JS文件中的function（包括操作cookie、Dom等等）</span>。根据这一点，可以方便地通过创建script节点的方法来实现完全跨域的通信。具体的做法可以参考YUI的<a target="_blank" href="http://developer.yahoo.com/yui/get/">Get Utility</a></p><br><p>这里判断script节点加载完毕还是蛮有意思的：ie只能通过script的readystatechange属性，其它浏览器是script的load事件。以下是部分判断script加载完毕的方法。</p><br><div class="rainman-code"><br><pre>js.onload = js.onreadystatechange = function() {<br>    if (!this.readyState || this.readyState === ‘loaded’ || this.readyState === ‘complete’) {<br>        // callback在此处执行<br>        js.onload = js.onreadystatechange = null;<br>    }<br>};</pre><br></div><br><a href="#" name="m3"></a><h3>3、利用iframe和location.hash</h3><br><p>这个办法比较绕，但是可以解决完全跨域情况下的脚步置换问题。原理是利用location.hash来进行传值。在url： <a href="http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（" target="_blank" rel="external">http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（</a><span class="gray">由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于a.com域名下的一个代理iframe；Firefox可以修改</span>）。同时在cs1.html上加一个定时器，隔一段时间来判断location.hash的值有没有变化，一点有变化则获取获取hash值。代码如下：</p><br><p>先是a.com下的文件cs1.html文件：</p><br><div class="rainman-code"><br><pre>function startRequest(){<br>    var ifr = document.createElement(‘iframe’);<br>    ifr.style.display = ‘none’;<br>    ifr.src = ‘<a href="http://www.cnblogs.com/lab/cscript/cs2.html#paramdo" target="_blank" rel="external">http://www.cnblogs.com/lab/cscript/cs2.html#paramdo</a>‘;<br>    document.body.appendChild(ifr);<br>}<br><br>function checkHash() {<br>    try {<br>        var data = location.hash ? location.hash.substring(1) : ‘’;<br>        if (console.log) {<br>            console.log(‘Now the data is ‘+data);<br>        }<br>    } catch(e) {};<br>}<br>setInterval(checkHash, 2000);</pre><br></div><br><p>cnblogs.com域名下的cs2.html:</p><br><div class="rainman-code"><br><pre>//模拟一个简单的参数处理操作<br>switch(location.hash){<br>    case ‘#paramdo’:<br>        callBack();<br>        break;<br>    case ‘#paramset’:<br>        //do something……<br>        break;<br>}<br><br>function callBack(){<br>    try {<br>        parent.location.hash = ‘somedata’;<br>    } catch (e) {<br>        // ie、chrome的安全机制无法修改parent.location.hash，<br>        // 所以要利用一个中间的cnblogs域下的代理iframe<br>        var ifrproxy = document.createElement(‘iframe’);<br>        ifrproxy.style.display = ‘none’;<br>        ifrproxy.src = ‘<a href="http://a.com/test/cscript/cs3.html#somedata" target="_blank" rel="external">http://a.com/test/cscript/cs3.html#somedata</a>‘;    <span class="green">// 注意该文件在”a.com”域下</span><br>        document.body.appendChild(ifrproxy);<br>    }<br>}</pre><br></div><br><p>a.com下的域名cs3.html</p><br><div class="rainman-code"><br><pre>//因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值<br>parent.parent.location.hash = self.location.hash.substring(1);</pre><br></div><br><p>当然这样做也存在很多缺点，诸如数据直接暴露在了url中，数据容量和类型都有限等……</p><br><a href="#" name="m4"></a><h3>4、window.name实现的跨域数据传输</h3><br><p>文章较长列在此处不便于阅读，详细请看&nbsp;<a target="_blank" href="http://www.cnblogs.com/rainman/archive/2011/02/21/1960044.html">window.name实现的跨域数据传输</a>。</p><br><a href="#" name="m5"></a><h3>5、使用HTML5 postMessage</h3><br><p><a href="http://dev.w3.org/html5/spec/" target="_blank">HTML5</a>中最酷的新功能之一就是 <a href="http://www.whatwg.org/specs/web-apps/current-work/#crossDocumentMessages" target="_blank">跨文档消息传输Cross Document Messaging</a>。下一代浏览器都将支持这个功能：Chrome 2.0+、Internet Explorer 8.0+, Firefox 3.0+, Opera 9.6+, 和 Safari 4.0+ 。 Facebook已经使用了这个功能，用postMessage支持基于web的实时消息传递。 </p><br><dl><br>    <dt>otherWindow.postMessage(message, targetOrigin);</dt><br>    <dd><span class="green">otherWindow: </span> 对接收信息页面的window的引用。可以是页面中iframe的contentWindow属性；<a href="https://developer.mozilla.org/en/DOM/window.open" target="_blank">window.open</a>的返回值；通过name或下标从<a href="https://developer.mozilla.org/en/DOM/window.frames" target="_blank">window.frames</a>取到的值。<br><br>    <span class="green">message: </span> 所要发送的数据，string类型。<br><br>    <span class="green">targetOrigin: </span> 用于限制otherWindow，“*”表示不作限制</dd><br></dl><br><p>a.com/index.html中的代码：</p><br><div class="rainman-code"><br><pre>&lt;iframe id=”ifr” src=”b.com/index.html”&gt;&lt;/iframe&gt;<br>&lt;script type=”text/javascript”&gt;<br>window.onload = function() {<br>    var ifr = document.getElementById(‘ifr’);<br>    var targetOrigin = ‘<a href="http://b.com" target="_blank" rel="external">http://b.com</a>‘;  <span class="green">// 若写成’<a href="http://b.com/c/proxy.html&#39;效果一样" target="_blank" rel="external">http://b.com/c/proxy.html&#39;效果一样</a></span><br>                                        <span class="green">// 若写成’<a href="http://c.com&#39;就不会执行postMessage了" target="_blank" rel="external">http://c.com&#39;就不会执行postMessage了</a></span><br>    ifr.contentWindow.postMessage(‘I was there!’, targetOrigin);<br>};<br>&lt;/script&gt;</pre><br></div><br><p>b.com/index.html中的代码：</p><br><div class="rainman-code"><br><pre>&lt;script type=”text/javascript”&gt;<br>    window.addEventListener(‘message’, function(event){<br>        // 通过origin属性判断消息来源地址<br>        if (event.origin == ‘<a href="http://a.com" target="_blank" rel="external">http://a.com</a>‘) {<br>            alert(event.data);    // 弹出”I was there!”<br>            alert(event.source);  // 对a.com、index.html中window对象的引用<br>                                  // 但由于同源策略，这里event.source不可以访问window对象<br>        }<br>    }, false);<br>&lt;/script&gt;</pre><br></div><br><p>参考文章：<a href="http://www.grati.org/?p=429" target="_blank">《精通HTML5编程》第五章——跨文档消息机制</a>、<a href="https://developer.mozilla.org/en/dom/window.postmessage" target="_blanks">https://developer.mozilla.org/en/dom/window.postmessage</a></p><br><a href="#" name="m6"></a><h3>6、利用flash</h3><br><p>这是从YUI3的IO组件中看到的办法，具体可见<a target="_blank" href="http://developer.yahoo.com/yui/3/io/">http://developer.yahoo.com/yui/3/io/</a>。<br>可以看在Adobe Developer Connection看到更多的跨域代理文件规范：<a target="_blank" href="http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html">ross-Domain Policy File Specifications</a>、<a target="_blank" href="http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html">HTTP Headers Blacklist</a>。</p>
+        <ul>
+<li><span><a href="/#m0">什么是跨域</a></span></li>
+<li><span><a href="/#m1">1、document.domain+iframe的设置</a></span></li>
+<li><span><a href="/#m2">2、动态创建script</a></span></li>
+<li><span><a href="/#m3">3、利用iframe和location.hash</a></span></li>
+<li><span><a href="/#m4">4、window.name实现的跨域数据传输</a></span></li>
+<li><span><a href="/#m5">5、使用HTML5 postMessage</a></span></li>
+<li><span><a href="/#m6">6、利用flash</a></span></li>
+</ul>
+<p>本文来自网络（<a href="http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。" target="_blank" rel="external">http://f2e.me/200904/cross-scripting/，该网址已不能访问），仅作个人读书笔记之用，并稍作修改和补充。</a></p>
+<p><a href="/#"></a></p>
+<h3 id="u4EC0_u4E48_u662F_u8DE8_u57DF"><a href="#u4EC0_u4E48_u662F_u8DE8_u57DF" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><p>JavaScript出于安全方面的考虑，不允许跨域调用其他页面的对象。但在安全限制的同时也给注入iframe或是ajax应用上带来了不少麻烦。这里把涉及到跨域的一些问题简单地整理一下：</p>
+<p>首先什么是跨域，简单地理解就是因为JavaScript同源策略的限制，a.com 域名下的js无法操作b.com或是c.a.com域名下的对象。更详细的说明可以看下表：</p>
+<p><table class="border"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><th>URL</th></p>
+<p><th>说明</th></p>
+<p><th>是否允许通信</th><br></p>
+<p><tr></tr></p>
+<p><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td></p>
+<p><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></p>
+<p><td>同一域名下</td></p>
+<p><td>允许</td><br></p>
+<p><tr></tr></p>
+<p><td><a href="http://www.a.com/lab/a.js" target="_blank" rel="external">http://www.a.com/lab/a.js</a></td></p>
+<p><a href="http://www.a.com/script/b.js" target="_blank" rel="external">http://www.a.com/script/b.js</a></p>
+<p><td>同一域名下不同文件夹</td></p>
+<p><td>允许</td><br></p>
+<p><tr></tr></p>
+<p><td><a href="http://www.a.com:8000/a.js" target="_blank" rel="external">http://www.a.com:8000/a.js</a></td></p>
+<p><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></p>
+<p><td>同一域名，不同端口</td></p>
+<p><td>不允许</td><br></p>
+<p><tr></tr></p>
+<p><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td></p>
+<p><a href="https://www.a.com/b.js" target="_blank" rel="external">https://www.a.com/b.js</a></p>
+<p><td>同一域名，不同协议</td></p>
+<p><td>不允许</td><br></p>
+<p><tr></tr></p>
+<p><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td></p>
+<p><a href="http://70.32.92.74/b.js" target="_blank" rel="external">http://70.32.92.74/b.js</a></p>
+<p><td>域名和域名对应ip</td></p>
+<p><td>不允许</td><br></p>
+<p><tr></tr></p>
+<p><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td></p>
+<p><a href="http://script.a.com/b.js" target="_blank" rel="external">http://script.a.com/b.js</a></p>
+<p><td>主域相同，子域不同</td></p>
+<p><td>不允许</td><br></p>
+<p><tr></tr></p>
+<p><td><a href="http://www.a.com/a.js" target="_blank" rel="external">http://www.a.com/a.js</a></td></p>
+<p><a href="http://a.com/b.js" target="_blank" rel="external">http://a.com/b.js</a><br></p>
+<p><td>同一域名，不同二级域名（同上）</td></p>
+<p><td>不允许（cookie这种情况下也不允许访问）</td><br></p>
+<p><tr></tr></p>
+<p><td><a href="http://www.cnblogs.com/a.js" target="_blank" rel="external">http://www.cnblogs.com/a.js</a></td></p>
+<p><a href="http://www.a.com/b.js" target="_blank" rel="external">http://www.a.com/b.js</a></p>
+<p><td>不同域名</td></p>
+<p><td>不允许</td><br><br><br></p>
+<dl><br>    <dt>特别注意两点：</dt><br>    <dd>第一，如果是协议和端口造成的跨域问题“前台”是无能为力的，</dd><br>    <dd>第二：在跨域问题上，域仅仅是通过“URL的首部”来识别而不会去尝试判断相同的ip地址对应着两个域或两个域是否在同一个ip上。<br>“URL的首部”指window.location.protocol +window.location.host，也可以理解为“Domains, protocols and ports must match”。</dd><br></dl>
+
+<p>接下来简单地总结一下在“前台”一般处理跨域的办法，后台proxy这种方案牵涉到后台配置，这里就不阐述了，有兴趣的可以看看yahoo的这篇文章：《<a href="http://developer.yahoo.com/javascript/howto-proxy.html" target="_blank" rel="external">JavaScript: Use a Web Proxy for Cross-Domain XMLHttpRequest Calls</a>》</p>
+<p><a href="/#"></a></p>
+<h3 id="1_u3001document-domain+iframe_u7684_u8BBE_u7F6E"><a href="#1_u3001document-domain+iframe_u7684_u8BBE_u7F6E" class="headerlink" title="1、document.domain+iframe的设置"></a>1、document.domain+iframe的设置</h3><p><span class="highlight">对于主域相同而子域不同的例子，可以通过设置document.domain的办法来解决</span>。具体的做法是可以在<a href="http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain" target="_blank" rel="external">http://www.a.com/a.html和http://script.a.com/b.html两个文件中分别加上document.domain</a> = ‘a.com’；然后通过a.html文件中创建一个iframe，去控制iframe的contentDocument，这样两个js文件之间就可以“交互”了。当然这种办法只能解决主域相同而二级域名不同的情况，如果你异想天开的把script.a.com的domian设为alibaba.com那显然是会报错地！代码如下：</p>
+<p>www.a.com上的a.html</p>
+<div class="rainman-code"><br><pre>document.domain = ‘a.com’;<br>var ifr = document.createElement(‘iframe’);<br>ifr.src = ‘<a href="http://script.a.com/b.html" target="_blank" rel="external">http://script.a.com/b.html</a>‘;<br>ifr.style.display = ‘none’;<br>document.body.appendChild(ifr);<br>ifr.onload = function(){<br>    var doc = ifr.contentDocument || ifr.contentWindow.document;<br>    // 在这里操纵b.html<br>    alert(doc.getElementsByTagName(“h1”)[0].childNodes[0].nodeValue);<br>};</pre><br></div>
+
+<p>script.a.com上的b.html</p>
+<div class="rainman-code"><br><pre>document.domain = ‘a.com’;</pre><br></div>
+
+<p>这种方式适用于{www.kuqin.com, kuqin.com, script.kuqin.com, css.kuqin.com}中的任何页面相互通信。</p>
+<p>备注：某一页面的domain默认等于window.location.hostname。主域名是不带www的域名，例如a.com，主域名前面带前缀的通常都为二级域名或多级域名，例如www.a.com其实是二级域名。<br>domain只能设置为主域名，不可以在b.a.com中将domain设置为c.a.com。</p>
+<dl><br>    <dt>问题：</dt><br>    <dd>1、安全性，当一个站点（b.a.com）被攻击后，另一个站点（c.a.com）会引起安全漏洞。</dd><br>    <dd>2、如果一个页面中引入多个iframe，要想能够操作所有iframe，必须都得设置相同domain。</dd><br></dl><br><a href="/#"></a><br><br>### 2、动态创建script<br><br><span class="highlight">虽然浏览器默认禁止了跨域访问，但并不禁止在页面中引用其他域的JS文件，并可以自由执行引入的JS文件中的function（包括操作cookie、Dom等等）</span>。根据这一点，可以方便地通过创建script节点的方法来实现完全跨域的通信。具体的做法可以参考YUI的<a href="http://developer.yahoo.com/yui/get/" target="_blank" rel="external">Get Utility</a><br><br>这里判断script节点加载完毕还是蛮有意思的：ie只能通过script的readystatechange属性，其它浏览器是script的load事件。以下是部分判断script加载完毕的方法。<br><br><div class="rainman-code"><br><pre>js.onload = js.onreadystatechange = function() {<br>    if (!this.readyState || this.readyState === ‘loaded’ || this.readyState === ‘complete’) {<br>        // callback在此处执行<br>        js.onload = js.onreadystatechange = null;<br>    }<br>};</pre><br></div><br><a href="/#"></a><br><br>### 3、利用iframe和location.hash<br><br>这个办法比较绕，但是可以解决完全跨域情况下的脚步置换问题。原理是利用location.hash来进行传值。在url： <a href="http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（" target="_blank" rel="external">http://a.com#helloword中的‘#helloworld’就是location.hash，改变hash并不会导致页面刷新，所以可以利用hash值来进行数据传递，当然数据容量是有限的。假设域名a.com下的文件cs1.html要和cnblogs.com域名下的cs2.html传递信息，cs1.html首先创建自动创建一个隐藏的iframe，iframe的src指向cnblogs.com域名下的cs2.html页面，这时的hash值可以做参数传递用。cs2.html响应请求后再将通过修改cs1.html的hash值来传递数据（</a><span class="gray">由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于a.com域名下的一个代理iframe；Firefox可以修改</span>）。同时在cs1.html上加一个定时器，隔一段时间来判断location.hash的值有没有变化，一点有变化则获取获取hash值。代码如下：<br><br>先是a.com下的文件cs1.html文件：<br><br><div class="rainman-code"><br><pre>function startRequest(){<br>    var ifr = document.createElement(‘iframe’);<br>    ifr.style.display = ‘none’;<br>    ifr.src = ‘<a href="http://www.cnblogs.com/lab/cscript/cs2.html#paramdo" target="_blank" rel="external">http://www.cnblogs.com/lab/cscript/cs2.html#paramdo</a>‘;<br>    document.body.appendChild(ifr);<br>}<br><br>function checkHash() {<br>    try {<br>        var data = location.hash ? location.hash.substring(1) : ‘’;<br>        if (console.log) {<br>            console.log(‘Now the data is ‘+data);<br>        }<br>    } catch(e) {};<br>}<br>setInterval(checkHash, 2000);</pre><br></div><br><br>cnblogs.com域名下的cs2.html:<br><br><div class="rainman-code"><br><pre>//模拟一个简单的参数处理操作<br>switch(location.hash){<br>    case ‘#paramdo’:<br>        callBack();<br>        break;<br>    case ‘#paramset’:<br>        //do something……<br>        break;<br>}<br><br>function callBack(){<br>    try {<br>        parent.location.hash = ‘somedata’;<br>    } catch (e) {<br>        // ie、chrome的安全机制无法修改parent.location.hash，<br>        // 所以要利用一个中间的cnblogs域下的代理iframe<br>        var ifrproxy = document.createElement(‘iframe’);<br>        ifrproxy.style.display = ‘none’;<br>        ifrproxy.src = ‘<a href="http://a.com/test/cscript/cs3.html#somedata" target="_blank" rel="external">http://a.com/test/cscript/cs3.html#somedata</a>‘;    <span class="green">// 注意该文件在”a.com”域下</span><br>        document.body.appendChild(ifrproxy);<br>    }<br>}</pre><br></div><br><br>a.com下的域名cs3.html<br><br><div class="rainman-code"><br><pre>//因为parent.parent和自身属于同一个域，所以可以改变其location.hash的值<br>parent.parent.location.hash = self.location.hash.substring(1);</pre><br></div><br><br>当然这样做也存在很多缺点，诸如数据直接暴露在了url中，数据容量和类型都有限等……<br><br><a href="/#"></a><br><br>### 4、window.name实现的跨域数据传输<br><br>文章较长列在此处不便于阅读，详细请看&nbsp;<a href="http://www.cnblogs.com/rainman/archive/2011/02/21/1960044.html" target="_blank" rel="external">window.name实现的跨域数据传输</a>。<br><br><a href="/#"></a><br><br>### 5、使用HTML5 postMessage<br><br><a href="http://dev.w3.org/html5/spec/" target="_blank" rel="external">HTML5</a>中最酷的新功能之一就是 <a href="http://www.whatwg.org/specs/web-apps/current-work/#crossDocumentMessages" target="_blank" rel="external">跨文档消息传输Cross Document Messaging</a>。下一代浏览器都将支持这个功能：Chrome 2.0+、Internet Explorer 8.0+, Firefox 3.0+, Opera 9.6+, 和 Safari 4.0+ 。 Facebook已经使用了这个功能，用postMessage支持基于web的实时消息传递。<br><br><dl><br>    <dt>otherWindow.postMessage(message, targetOrigin);</dt><br>    <dd><span class="green">otherWindow: </span> 对接收信息页面的window的引用。可以是页面中iframe的contentWindow属性；<a href="https://developer.mozilla.org/en/DOM/window.open" target="_blank" rel="external">window.open</a>的返回值；通过name或下标从<a href="https://developer.mozilla.org/en/DOM/window.frames" target="_blank" rel="external">window.frames</a>取到的值。<br><br>    <span class="green">message: </span> 所要发送的数据，string类型。<br><br>    <span class="green">targetOrigin: </span> 用于限制otherWindow，“*”表示不作限制</dd><br></dl>
+
+<p>a.com/index.html中的代码：</p>
+<div class="rainman-code"><br><pre>&lt;iframe id=”ifr” src=”b.com/index.html”&gt;&lt;/iframe&gt;<br>&lt;script type=”text/javascript”&gt;<br>window.onload = function() {<br>    var ifr = document.getElementById(‘ifr’);<br>    var targetOrigin = ‘<a href="http://b.com" target="_blank" rel="external">http://b.com</a>‘;  <span class="green">// 若写成’<a href="http://b.com/c/proxy.html&#39;效果一样" target="_blank" rel="external">http://b.com/c/proxy.html&#39;效果一样</a></span><br>                                        <span class="green">// 若写成’<a href="http://c.com&#39;就不会执行postMessage了" target="_blank" rel="external">http://c.com&#39;就不会执行postMessage了</a></span><br>    ifr.contentWindow.postMessage(‘I was there!’, targetOrigin);<br>};<br>&lt;/script&gt;</pre><br></div>
+
+<p>b.com/index.html中的代码：</p>
+<div class="rainman-code"><br><pre>&lt;script type=”text/javascript”&gt;<br>    window.addEventListener(‘message’, function(event){<br>        // 通过origin属性判断消息来源地址<br>        if (event.origin == ‘<a href="http://a.com" target="_blank" rel="external">http://a.com</a>‘) {<br>            alert(event.data);    // 弹出”I was there!”<br>            alert(event.source);  // 对a.com、index.html中window对象的引用<br>                                  // 但由于同源策略，这里event.source不可以访问window对象<br>        }<br>    }, false);<br>&lt;/script&gt;</pre><br></div>
+
+<p>参考文章：<a href="http://www.grati.org/?p=429" target="_blank" rel="external">《精通HTML5编程》第五章——跨文档消息机制</a>、<a href="https://developer.mozilla.org/en/dom/window.postmessage" target="_blank" rel="external">https://developer.mozilla.org/en/dom/window.postmessage</a></p>
+<p><a href="/#"></a></p>
+<h3 id="6_u3001_u5229_u7528flash"><a href="#6_u3001_u5229_u7528flash" class="headerlink" title="6、利用flash"></a>6、利用flash</h3><p>这是从YUI3的IO组件中看到的办法，具体可见<a href="http://developer.yahoo.com/yui/3/io/" target="_blank" rel="external">http://developer.yahoo.com/yui/3/io/</a>。<br>可以看在Adobe Developer Connection看到更多的跨域代理文件规范：<a href="http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html" target="_blank" rel="external">ross-Domain Policy File Specifications</a>、<a href="http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html" target="_blank" rel="external">HTTP Headers Blacklist</a>。</p>
+
       </div>
       <footer class="article-footer">
         <a data-url="http://blog.css6.com/2015/11/12/浏览器中javascript跨域解决方案/" data-id="cijb21gyy0036kprlob31nf9g" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
@@ -189,25 +292,6 @@
             
             <div class="item-thumbnail">
               
-<a href="/2016/01/12/untitled/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/01/12/untitled/" class="title"></a></p>
-              <p class="item-date"><time datetime="2016-01-12T07:14:56.114Z" itemprop="datePublished">2016-01-12</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
 <a href="/2016/01/12/记录我这一年的技术之路-nodejs纯干货/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -280,6 +364,25 @@
             </div>
           </li>
         
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/07/nodeJS-起步/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/01/07/nodeJS-起步/" class="title">神一样的nodeJS：nodeJS 起步</a></p>
+              <p class="item-date"><time datetime="2016-01-07T07:51:54.000Z" itemprop="datePublished">2016-01-07</time></p>
+            </div>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -289,7 +392,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/nodeJS/">nodeJS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吐槽/">吐槽</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术文摘/">技术文摘</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/nodeJS/">nodeJS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吐槽/">吐槽</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术文摘/">技术文摘</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -299,7 +402,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 

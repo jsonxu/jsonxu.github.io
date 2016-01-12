@@ -6,42 +6,39 @@
   <title>前端工程化知识要点回顾和思考 | 凯歌的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前端工程化知识要点回顾&amp;amp;思考
-
 编程技术及生态发展的三个阶段
-
 最初的时候人们忙着补全各种API，代表着他们拥有的东西还很匮乏，需要在语言跟基础设施上继续完善
 然后就开始各种模式，标志他们做的东西逐渐变大变复杂，需要更好的组织了
 然后就是各类分层MVC，MVP，MVVM之类，可视化开发，自动化测试，团队协同系统等等，说明重视生产效率了，也就是所谓工程化
-前端工程是软件工程的一个子类别
 
-软">
+
+前端工程是软件工程的一个子类别
+软件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端工程化知识要点回顾和思考">
 <meta property="og:url" content="http://blog.css6.com/2015/11/20/前端工程化知识要点回顾和思考/index.html">
 <meta property="og:site_name" content="凯歌的博客">
 <meta property="og:description" content="前端工程化知识要点回顾&amp;amp;思考
-
 编程技术及生态发展的三个阶段
-
 最初的时候人们忙着补全各种API，代表着他们拥有的东西还很匮乏，需要在语言跟基础设施上继续完善
 然后就开始各种模式，标志他们做的东西逐渐变大变复杂，需要更好的组织了
 然后就是各类分层MVC，MVP，MVVM之类，可视化开发，自动化测试，团队协同系统等等，说明重视生产效率了，也就是所谓工程化
-前端工程是软件工程的一个子类别
 
-软">
-<meta property="og:updated_time" content="2015-11-20T08:15:16.000Z">
+
+前端工程是软件工程的一个子类别
+软件">
+<meta property="og:updated_time" content="2016-01-12T07:18:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端工程化知识要点回顾和思考">
 <meta name="twitter:description" content="前端工程化知识要点回顾&amp;amp;思考
-
 编程技术及生态发展的三个阶段
-
 最初的时候人们忙着补全各种API，代表着他们拥有的东西还很匮乏，需要在语言跟基础设施上继续完善
 然后就开始各种模式，标志他们做的东西逐渐变大变复杂，需要更好的组织了
 然后就是各类分层MVC，MVP，MVVM之类，可视化开发，自动化测试，团队协同系统等等，说明重视生产效率了，也就是所谓工程化
-前端工程是软件工程的一个子类别
 
-软">
+
+前端工程是软件工程的一个子类别
+软件">
   
   
   <link rel="icon" href="/favicon.png">
@@ -127,16 +124,93 @@
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <p></p><h3>前端工程化知识要点回顾&amp;思考</h3><p></p>
-<p><blockquote></blockquote></p>
-<p></p><h4>编程技术及生态发展的三个阶段</h4><p></p>
-<p><ul></ul></p>
-<p><li>最初的时候人们忙着补全各种API，代表着他们拥有的东西还很匮乏，需要在语言跟基础设施上继续完善</li></p>
-<p><li>然后就开始各种模式，标志他们做的东西逐渐变大变复杂，需要更好的组织了</li></p>
-<p><li>然后就是各类分层MVC，MVP，MVVM之类，可视化开发，自动化测试，团队协同系统等等，说明重视生产效率了，也就是所谓工程化</li><br><br></p>
-<p></p><h4>前端工程是软件工程的一个子类别</h4><p></p>
-<p><blockquote></blockquote></p>
-<p>软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。</p><br><br><h4>前端是一种GUI软件</h4><br><blockquote><br><p>从本质上讲，所有Web应用都是一种运行在网页浏览器中的软件，这些软件的图形用户界面（Graphical User Interface，简称GUI）即为前端。</p><br></blockquote><br><p>前端又不同于传统的客户端软件／后端，因为前端应用具备“免安装”、“增量安装”等特性。也“得益”于这些特性，前端应用会遭遇客户端应用不可能碰到的资源管理问题，这也是前端最容易引起工程问题的点。</p><br><h4>一个符合工程化要求的软件系统(前端)需要包含的要素</h4><br><ol><br><li>开发规范</li><br><li>模块化开发</li><br><li>组件化开发</li><br><li>组件仓库</li><br><li>性能优化</li><br><li>项目部署</li><br><li>开发流程</li><br><li>开发工具</li><br></ol><br><p>1-3是技术业务相关的开发需求，4是技术沉淀及共享需求，5-8是工程优化需求  </p><br><blockquote><br><p>大部分时候我们谈的“工程化”其实只是“工具化”。</p><br></blockquote><br><p>每一个单独的点或许都比较容易实现，但是把这8条串联起来则是一个很大的挑战，而且这8个点相互之间又互有联系</p><br><ul><br><li>模块化开发涉及到性能优化，对构建工具有一定的配套实现要求，同时也会影响开发规范的制定</li><br><li>组件化开发应该基于模块化框架来加载其他依赖的组件，如果组件化框架自带模块管理功能，那么就可能导致工程的性能优化实现困难（我们可以直接使用ES6的module语法及loader）</li><br><li>组件库应该与组件化开发配套，组件仓库中的组件应该按照相同的标准实现</li><br><li>开发规范工具必须容易实现，如果部署上有特殊要求，工具是否能很容易的做出调整而不是修改规范。</li><br><li>工具是否能提供接入公司已有流程的接口，是否能与公司的ci工具相互融合</li><br></ul><br><h4>为什么都说前端目前正遭遇前所未有的工程问题</h4><br><ol><br><li>前端在第1、2阶段耗费了十多年的时间，然后近几年才井喷式的爆发</li><br><li>由于整个生态的发展缓慢、门栏低、构建应用成本低，前端开发长时间停留在刀耕火种、茹毛饮血的阶段</li><br><li>以前大部分前端工作都是切页面加特效，还不能算得上一个真正意义上的webapp，自然很少有公司能遭遇到工程化问题</li><br><li>前端不同于 客户端／后端 的特性(比如增量安装)，导致遭遇的工程会很特殊，很难直接从别的领域套用已有的解决方案</li><br><li>我们自己完全意识不到那是问题<g-emoji alias="joy" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png">😂</g-emoji><br></li><br></ol><br><h4>工程化到底要解决哪些问题</h4><br><ol><br><li>合理的开发流程及开发规范，包括代码规范、模块化组件化规范(分治)等（提高生产力）</li><br><li>一套自动化代码质量检测方案（提高系统可靠性）</li><br><li>一套自动化及高度适应性的项目 发布／部署 方案（提高系统的伸缩性及灵活性）</li><br><li>极致的性能优化，包括减少冗余的接口请求及资源请求、提高缓存命中率等，简言之就是站点的打开及运行速度（更好的用户体验）</li><br></ol><br><p>举三个案例：</p><br><ol><br><li>最基本的资源合并，我们应该采取哪种策略？全部打包成一个还是分开打包？如何最高效的利用缓存？如何在降低请求数的同时提高缓存利用率？移动终端又应该采取哪种策略？</li><br><li>发布的时候我们到底是应该先部署页面还是静态资源？如何实现平滑升级？如果我还想玩个灰度发布呢？</li><br><li>如果采用模块化按需加载的方式开发，每次发布资源文件都会有不同的md5值，如何在不影响开发体验的前提下确保能引用到正确的模块？</li><br></ol><br><h4>相关工具？</h4><br><ol><br><li>构建工具 gulp<br><br>task-based的方式使得gulp无法(难以)处理资源嵌套的递归场景。如 a.js -&gt; b.scss -&gt; md5(d.img) -&gt; md5(b.scss) -&gt; md5(a.js)</li><br><li><p>基于 资源表＋资源管理框架 策略的<a href="https://github.com/fex-team/fis" target="_blank" rel="external">fis</a><br><br><br>其实已经能处理大部分场景了，但是侵入式代码实在是无法接受。因为它是一个框架。</p></li><br><li><br><p>静态分析工具 webpack<br><br><br>webpack依赖其可配置的loader使其拥有强大的打包能力，但是依然无法实现动态按需加载的需求。类似：</p><br><div class="highlight highlight-source-js"><pre><span class="pl-k">if</span>(browser){<br>    <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">‘</span>browser.js<span class="pl-pds">‘</span></span>);<br>} <span class="pl-k">else</span> {<br>    <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">‘</span>node.js<span class="pl-pds">‘</span></span>);<br>}</pre></div><br></li><br></ol><br><h4>出路</h4><br><p><em>ES6 Module ＋ ES6 Module Loader ＋ HTTP2.0 ＋ Others</em></p><br><p>ES6 Module提供了一个原生的模块化语法，ES6 Module Loader则能提供一个原生的模块加载器。对于前端工程而言，资源管理是最核心的问题，而资源管理中加载又是重点更是难点。<br><br><br>可是ES6 Module Loader从ES6草案中移除了现在由WHATWG组织还在维护制定标准，pending状态。。<br><br><br>现在有一个基于这个草案实现的api polyfill <a href="https://github.com/ModuleLoader/es6-module-loader" target="_blank" rel="external">Module Loader</a>。可是你不是规范我这种教条主义者是不会用的<g-emoji alias="joy" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png">😂</g-emoji></p><br><h4>总结</h4><br><p>前端工程化相关问题是随之前端的发展越来越受到重视的问题，一套好的工程化解决方案能在提高开发效率(包括代码编写的舒适度及多人协作)的同时确保整个系统的伸缩性(各种不同的部署环境)及健壮性(安全)，同时在性能上又能有一个很优异的表现(主要上各种缓存策略加载策略等)，而且这套方案又应该是对工程师无感知(或感知很小)趋于自动化的一套方案。总知要达到这个目的前端工程化还有很长一段路要走。</p><br><h4>拓展阅读</h4><br><ol><br><li>国内工程化第一人系列文章 <a href="https://github.com/fouber/blog/issues" target="_blank" rel="external">https://github.com/fouber/blog/issues</a><br></li><br><li><a href="https://github.com/fouber/blog/issues/6" target="_blank" rel="external">大公司是如何部署前端代码的</a></li><br><li>相关工具<br><ul><br><li>百度：<a href="https://github.com/fex-team/fis" target="_blank" rel="external">fis</a>  （资源表＋资源管理框架 策略）</li><br><li>UC：<a href="https://github.com/scrat-team/scrat" target="_blank" rel="external">scrat</a><br><br></li><br><li>腾讯：<a href="http://mtjs.github.io/" target="_blank" rel="external">mtjs</a>  （可以实现字节增量发布）</li><br></ul><br></li><br></ol><br><p>原文地址：<a href="https://github.com/kuitos/kuitos.github.io/issues/29" target="_blank" rel="external">https://github.com/kuitos/kuitos.github.io/issues/29</a></p>
+        <h3 id="u524D_u7AEF_u5DE5_u7A0B_u5316_u77E5_u8BC6_u8981_u70B9_u56DE_u987E_26amp_3B_u601D_u8003"><a href="#u524D_u7AEF_u5DE5_u7A0B_u5316_u77E5_u8BC6_u8981_u70B9_u56DE_u987E_26amp_3B_u601D_u8003" class="headerlink" title="前端工程化知识要点回顾&amp;思考"></a>前端工程化知识要点回顾&amp;思考</h3><blockquote>
+<h4 id="u7F16_u7A0B_u6280_u672F_u53CA_u751F_u6001_u53D1_u5C55_u7684_u4E09_u4E2A_u9636_u6BB5"><a href="#u7F16_u7A0B_u6280_u672F_u53CA_u751F_u6001_u53D1_u5C55_u7684_u4E09_u4E2A_u9636_u6BB5" class="headerlink" title="编程技术及生态发展的三个阶段"></a>编程技术及生态发展的三个阶段</h4><ul>
+<li>最初的时候人们忙着补全各种API，代表着他们拥有的东西还很匮乏，需要在语言跟基础设施上继续完善</li>
+<li>然后就开始各种模式，标志他们做的东西逐渐变大变复杂，需要更好的组织了</li>
+<li>然后就是各类分层MVC，MVP，MVVM之类，可视化开发，自动化测试，团队协同系统等等，说明重视生产效率了，也就是所谓工程化</li>
+</ul>
+</blockquote>
+<h4 id="u524D_u7AEF_u5DE5_u7A0B_u662F_u8F6F_u4EF6_u5DE5_u7A0B_u7684_u4E00_u4E2A_u5B50_u7C7B_u522B"><a href="#u524D_u7AEF_u5DE5_u7A0B_u662F_u8F6F_u4EF6_u5DE5_u7A0B_u7684_u4E00_u4E2A_u5B50_u7C7B_u522B" class="headerlink" title="前端工程是软件工程的一个子类别"></a>前端工程是软件工程的一个子类别</h4><blockquote>
+<p>软件工程是一门研究用工程化方法构建和维护有效的、实用的和高质量的软件的学科。</p>
+</blockquote>
+<h4 id="u524D_u7AEF_u662F_u4E00_u79CDGUI_u8F6F_u4EF6"><a href="#u524D_u7AEF_u662F_u4E00_u79CDGUI_u8F6F_u4EF6" class="headerlink" title="前端是一种GUI软件"></a>前端是一种GUI软件</h4><blockquote>
+<p>从本质上讲，所有Web应用都是一种运行在网页浏览器中的软件，这些软件的图形用户界面（Graphical User Interface，简称GUI）即为前端。</p>
+</blockquote>
+<p>前端又不同于传统的客户端软件／后端，因为前端应用具备“免安装”、“增量安装”等特性。也“得益”于这些特性，前端应用会遭遇客户端应用不可能碰到的资源管理问题，这也是前端最容易引起工程问题的点。</p>
+<h4 id="u4E00_u4E2A_u7B26_u5408_u5DE5_u7A0B_u5316_u8981_u6C42_u7684_u8F6F_u4EF6_u7CFB_u7EDF_28_u524D_u7AEF_29_u9700_u8981_u5305_u542B_u7684_u8981_u7D20"><a href="#u4E00_u4E2A_u7B26_u5408_u5DE5_u7A0B_u5316_u8981_u6C42_u7684_u8F6F_u4EF6_u7CFB_u7EDF_28_u524D_u7AEF_29_u9700_u8981_u5305_u542B_u7684_u8981_u7D20" class="headerlink" title="一个符合工程化要求的软件系统(前端)需要包含的要素"></a>一个符合工程化要求的软件系统(前端)需要包含的要素</h4><ol>
+<li>开发规范</li>
+<li>模块化开发</li>
+<li>组件化开发</li>
+<li>组件仓库</li>
+<li>性能优化</li>
+<li>项目部署</li>
+<li>开发流程</li>
+<li>开发工具</li>
+</ol>
+<p>1-3是技术业务相关的开发需求，4是技术沉淀及共享需求，5-8是工程优化需求  </p>
+<blockquote>
+<p>大部分时候我们谈的“工程化”其实只是“工具化”。</p>
+</blockquote>
+<p>每一个单独的点或许都比较容易实现，但是把这8条串联起来则是一个很大的挑战，而且这8个点相互之间又互有联系</p>
+<ul>
+<li>模块化开发涉及到性能优化，对构建工具有一定的配套实现要求，同时也会影响开发规范的制定</li>
+<li>组件化开发应该基于模块化框架来加载其他依赖的组件，如果组件化框架自带模块管理功能，那么就可能导致工程的性能优化实现困难（我们可以直接使用ES6的module语法及loader）</li>
+<li>组件库应该与组件化开发配套，组件仓库中的组件应该按照相同的标准实现</li>
+<li>开发规范工具必须容易实现，如果部署上有特殊要求，工具是否能很容易的做出调整而不是修改规范。</li>
+<li>工具是否能提供接入公司已有流程的接口，是否能与公司的ci工具相互融合</li>
+</ul>
+<h4 id="u4E3A_u4EC0_u4E48_u90FD_u8BF4_u524D_u7AEF_u76EE_u524D_u6B63_u906D_u9047_u524D_u6240_u672A_u6709_u7684_u5DE5_u7A0B_u95EE_u9898"><a href="#u4E3A_u4EC0_u4E48_u90FD_u8BF4_u524D_u7AEF_u76EE_u524D_u6B63_u906D_u9047_u524D_u6240_u672A_u6709_u7684_u5DE5_u7A0B_u95EE_u9898" class="headerlink" title="为什么都说前端目前正遭遇前所未有的工程问题"></a>为什么都说前端目前正遭遇前所未有的工程问题</h4><ol>
+<li>前端在第1、2阶段耗费了十多年的时间，然后近几年才井喷式的爆发</li>
+<li>由于整个生态的发展缓慢、门栏低、构建应用成本低，前端开发长时间停留在刀耕火种、茹毛饮血的阶段</li>
+<li>以前大部分前端工作都是切页面加特效，还不能算得上一个真正意义上的webapp，自然很少有公司能遭遇到工程化问题</li>
+<li>前端不同于 客户端／后端 的特性(比如增量安装)，导致遭遇的工程会很特殊，很难直接从别的领域套用已有的解决方案</li>
+<li>我们自己完全意识不到那是问题<g-emoji alias="joy" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png">😂</g-emoji></li>
+</ol>
+<h4 id="u5DE5_u7A0B_u5316_u5230_u5E95_u8981_u89E3_u51B3_u54EA_u4E9B_u95EE_u9898"><a href="#u5DE5_u7A0B_u5316_u5230_u5E95_u8981_u89E3_u51B3_u54EA_u4E9B_u95EE_u9898" class="headerlink" title="工程化到底要解决哪些问题"></a>工程化到底要解决哪些问题</h4><ol>
+<li>合理的开发流程及开发规范，包括代码规范、模块化组件化规范(分治)等（提高生产力）</li>
+<li>一套自动化代码质量检测方案（提高系统可靠性）</li>
+<li>一套自动化及高度适应性的项目 发布／部署 方案（提高系统的伸缩性及灵活性）</li>
+<li>极致的性能优化，包括减少冗余的接口请求及资源请求、提高缓存命中率等，简言之就是站点的打开及运行速度（更好的用户体验）</li>
+</ol>
+<p>举三个案例：</p>
+<ol>
+<li>最基本的资源合并，我们应该采取哪种策略？全部打包成一个还是分开打包？如何最高效的利用缓存？如何在降低请求数的同时提高缓存利用率？移动终端又应该采取哪种策略？</li>
+<li>发布的时候我们到底是应该先部署页面还是静态资源？如何实现平滑升级？如果我还想玩个灰度发布呢？</li>
+<li>如果采用模块化按需加载的方式开发，每次发布资源文件都会有不同的md5值，如何在不影响开发体验的前提下确保能引用到正确的模块？</li>
+</ol>
+<h4 id="u76F8_u5173_u5DE5_u5177_uFF1F"><a href="#u76F8_u5173_u5DE5_u5177_uFF1F" class="headerlink" title="相关工具？"></a>相关工具？</h4><ol>
+<li><p>构建工具 gulp</p>
+<p>task-based的方式使得gulp无法(难以)处理资源嵌套的递归场景。如 a.js -&gt; b.scss -&gt; md5(d.img) -&gt; md5(b.scss) -&gt; md5(a.js)</p>
+</li>
+<li>基于 资源表＋资源管理框架 策略的<a href="https://github.com/fex-team/fis" target="_blank" rel="external">fis</a></li>
+</ol>
+<p>其实已经能处理大部分场景了，但是侵入式代码实在是无法接受。因为它是一个框架。</p>
+<ol>
+<li>静态分析工具 webpack</li>
+</ol>
+<p>webpack依赖其可配置的loader使其拥有强大的打包能力，但是依然无法实现动态按需加载的需求。类似：</p>
+<pre><code>&lt;div class=&quot;highlight highlight-source-js&quot;&gt;&lt;pre&gt;&lt;span class=&quot;pl-k&quot;&gt;if&lt;/span&gt;(browser){
+&lt;span class=&quot;pl-c1&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&apos;&lt;/span&gt;browser.js&lt;span class=&quot;pl-pds&quot;&gt;&apos;&lt;/span&gt;&lt;/span&gt;);
+</code></pre><p>} <span class="pl-k">else</span> {<br>    <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">‘</span>node.js<span class="pl-pds">‘</span></span>);<br>}</p>
+<h4 id="u51FA_u8DEF"><a href="#u51FA_u8DEF" class="headerlink" title="出路"></a>出路</h4><p><em>ES6 Module ＋ ES6 Module Loader ＋ HTTP2.0 ＋ Others</em></p>
+<p>ES6 Module提供了一个原生的模块化语法，ES6 Module Loader则能提供一个原生的模块加载器。对于前端工程而言，资源管理是最核心的问题，而资源管理中加载又是重点更是难点。</p>
+<p>可是ES6 Module Loader从ES6草案中移除了现在由WHATWG组织还在维护制定标准，pending状态。。</p>
+<p>现在有一个基于这个草案实现的api polyfill <a href="https://github.com/ModuleLoader/es6-module-loader" target="_blank" rel="external">Module Loader</a>。可是你不是规范我这种教条主义者是不会用的<g-emoji alias="joy" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png">😂</g-emoji></p>
+<h4 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h4><p>前端工程化相关问题是随之前端的发展越来越受到重视的问题，一套好的工程化解决方案能在提高开发效率(包括代码编写的舒适度及多人协作)的同时确保整个系统的伸缩性(各种不同的部署环境)及健壮性(安全)，同时在性能上又能有一个很优异的表现(主要上各种缓存策略加载策略等)，而且这套方案又应该是对工程师无感知(或感知很小)趋于自动化的一套方案。总知要达到这个目的前端工程化还有很长一段路要走。</p>
+<h4 id="u62D3_u5C55_u9605_u8BFB"><a href="#u62D3_u5C55_u9605_u8BFB" class="headerlink" title="拓展阅读"></a>拓展阅读</h4><ol>
+<li>国内工程化第一人系列文章 <a href="https://github.com/fouber/blog/issues" target="_blank" rel="external">https://github.com/fouber/blog/issues</a></li>
+<li><a href="https://github.com/fouber/blog/issues/6" target="_blank" rel="external">大公司是如何部署前端代码的</a></li>
+<li><p>相关工具</p>
+<ul>
+<li>百度：<a href="https://github.com/fex-team/fis" target="_blank" rel="external">fis</a>  （资源表＋资源管理框架 策略）</li>
+<li>UC：<a href="https://github.com/scrat-team/scrat" target="_blank" rel="external">scrat</a></li>
+<li>腾讯：<a href="http://mtjs.github.io/" target="_blank" rel="external">mtjs</a>  （可以实现字节增量发布）</li>
+</ul>
+</li>
+</ol>
+<p>原文地址：<a href="https://github.com/kuitos/kuitos.github.io/issues/29" target="_blank" rel="external">https://github.com/kuitos/kuitos.github.io/issues/29</a></p>
+
       </div>
       <footer class="article-footer">
         <a data-url="http://blog.css6.com/2015/11/20/前端工程化知识要点回顾和思考/" data-id="cijb21gyc002akprll25lgcqa" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
@@ -221,25 +295,6 @@
             
             <div class="item-thumbnail">
               
-<a href="/2016/01/12/untitled/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2016/01/12/untitled/" class="title"></a></p>
-              <p class="item-date"><time datetime="2016-01-12T07:14:56.114Z" itemprop="datePublished">2016-01-12</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
 <a href="/2016/01/12/记录我这一年的技术之路-nodejs纯干货/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -312,6 +367,25 @@
             </div>
           </li>
         
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/07/nodeJS-起步/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/01/07/nodeJS-起步/" class="title">神一样的nodeJS：nodeJS 起步</a></p>
+              <p class="item-date"><time datetime="2016-01-07T07:51:54.000Z" itemprop="datePublished">2016-01-07</time></p>
+            </div>
+          </li>
+        
       </ul>
     </div>
   </div>
@@ -321,7 +395,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/nodeJS/">nodeJS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吐槽/">吐槽</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术文摘/">技术文摘</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/nodeJS/">nodeJS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吐槽/">吐槽</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术文摘/">技术文摘</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a><span class="category-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -331,7 +405,7 @@
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">9</span></li></ul>
     </div>
   </div>
 
