@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>记录我这一年的技术之路(nodejs纯干货) | 凯歌的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="2015年12月28日23:19:54 更新koa应用、学习型网站和开发者工具等        coding伊始    开始认认真真的学习技术还是2014.10.21日开始的，记得很清楚，那天，是我在龙湖正式学习的第一天。还记得硕哥面我的样子，高高瘦瘦的，一双白色休闲鞋加牛仔裤，典型的程序员风格。    “有什么爱好吗” “自学过ps，dreamweaver，自己搞过简单的网页，很简单的那种，喜欢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录我这一年的技术之路(nodejs纯干货)">
+<meta property="og:url" content="http://blog.css6.com/2016/01/12/记录我这一年的技术之路-nodejs纯干货/index.html">
+<meta property="og:site_name" content="凯歌的博客">
+<meta property="og:description" content="2015年12月28日23:19:54 更新koa应用、学习型网站和开发者工具等        coding伊始    开始认认真真的学习技术还是2014.10.21日开始的，记得很清楚，那天，是我在龙湖正式学习的第一天。还记得硕哥面我的样子，高高瘦瘦的，一双白色休闲鞋加牛仔裤，典型的程序员风格。    “有什么爱好吗” “自学过ps，dreamweaver，自己搞过简单的网页，很简单的那种，喜欢">
+<meta property="og:updated_time" content="2016-01-12T07:02:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录我这一年的技术之路(nodejs纯干货)">
+<meta name="twitter:description" content="2015年12月28日23:19:54 更新koa应用、学习型网站和开发者工具等        coding伊始    开始认认真真的学习技术还是2014.10.21日开始的，记得很清楚，那天，是我在龙湖正式学习的第一天。还记得硕哥面我的样子，高高瘦瘦的，一双白色休闲鞋加牛仔裤，典型的程序员风格。    “有什么爱好吗” “自学过ps，dreamweaver，自己搞过简单的网页，很简单的那种，喜欢">
+  
+  
+  <link rel="icon" href="/favicon.png">
+  
+  <link href="http://cdn.css6.com/css/style.css" rel="stylesheet" type="text/css">
+  
+    <link href="http://cdn.css6.com/fancybox/jquery.fancybox.css" rel="stylesheet" type="text/css">
+  
+  
+     <link href="http://cdn.css6.com/scrollLoading/style.css" rel="stylesheet" type="text/css">
+  
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"><img src="http://cdn.css6.com/css/images/logo-header.png" width="165" height="60" alt="凯歌的博客" /></a>
+          </h1>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/nodeJS/">nodeJS</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/前端笔记/">前端笔记</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/吐槽/">吐槽</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术文摘/">技术文摘</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/生活随笔/">生活随笔</a></li></ul>
+                  
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/2014/11/25/about-me/">关于</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://blog.css6.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/技术文摘/">技术文摘</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-记录我这一年的技术之路-nodejs纯干货" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      记录我这一年的技术之路(nodejs纯干货)
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/2016/01/12/记录我这一年的技术之路-nodejs纯干货/" class="article-date">
+  <time datetime="2016-01-12T06:59:17.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <div class="markdown-text"><br>    <blockquote><br>        <p>2015年12月28日23:19:54 更新koa应用、学习型网站和开发者工具等</p><br>    </blockquote><br>    <h3>coding伊始</h3><br>    <p>开始认认真真的学习技术还是2014.10.21日开始的，记得很清楚，那天，是我在龙湖正式学习的第一天。还记得硕哥面我的样子，高高瘦瘦的，一双白色休闲鞋加牛仔裤，典型的程序员风格。</p><br>    <p>“有什么爱好吗” “自学过ps，dreamweaver，自己搞过简单的网页，很简单的那种，喜欢摄影，所以才自学的ps，现在也就会些抠图啊什么的…” ns 这段对话之所以印象深刻是因为后来硕哥给我们说，有感兴趣的事物，还得实际的动手去做了，有想法还得有行动，才算是优秀的入门。我想，当时可能是因为我真正的去做了才会被选中吧，对了，这里的录取率貌似不到10%…<br>    </p><br>    <h3>coding环境</h3><br>    <p>首先，接触coding，你得有自己的一套开发环境，没有mac的同学我推荐Ubuntu 14.04，可以参考我的一篇blog <a href="http://www.cnblogs.com/wfsovereign/p/4085029.html" target="_blank">ubuntu14.04安装及web环境的搭建</a>，其次，就是世界上程序员最大的社交网站<a href="https://github.com/" target="_blank">Github</a>了，哈哈，关于如何配置自己的github可以参考<a href="https://github.com/" target="_blank">github官网</a>，也可以参考<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank">廖雪峰的git教程</a>。</p><br>    <h3>coding龙湖</h3><br>    <p>在龙湖，搭好coding环境之后，首先接触的是前端方面的知识，HTML、CSS、Javascript，这些基础知识可以参考这个<a href="http://www.codefordream.com/" target="_blank">几米家的网站</a>。有了基础之后，就可以自己实际上手做些例子了，毕竟实战中得来的经验才是最好的。</p><br>    <p>至于做什么，目前这个阶段当然是做最基础的啊，可以参考我的一些小项目</p><br>    <blockquote></blockquote><br>    <ul><br>        <li><a href="https://github.com/wfsovereign/pos2" target="_blank">pos机相关逻辑操作练习</a> 练习git相关命名操作，感受小步提交的好处，<code>层层递进</code>的感受编程之美</li><br>        <li><a href="https://github.com/wfsovereign/guess-number" target="_blank">猜数字</a> 附有详细练习步骤，可学习TDD开发模式</li><br>        <li><a href="https://github.com/wfsovereign/pos-jquery" target="_blank">posjQuery网页版</a> 可以称得上一个单独的小小型项目，纯页面端的逻辑，可学习bootstrap、jQuery、dom操作、页面数据存储等</li><br>        <li><a href="https://github.com/nswbmw/N-blog/wiki/%E7%AC%AC1%E7%AB%A0--%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank">一个简单的博客</a> 我的node入门项目，所以<a href="/user/nswbmw" target="_blank">@nswbmw</a>也可以说是我的入门导师，哈哈，小星星。通过这个项目，可以了解如何构建一个node项目，学习express框架、ejs模板、mongodb数据库等</li><br>        <li><a href="https://github.com/wfsovereign/Node_pos" target="_blank">posNode版</a> 这个就是在学习<a href="https://github.com/nswbmw/N-blog/wiki/%E7%AC%AC1%E7%AB%A0--%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%8D%9A%E5%AE%A2" target="_blank">一个简单的博客</a>之后，将前面的pos机项目做成node版本的，学以致用</li><br>    </ul><br>    <p>学习完这些之后，你可能觉得自己已经不错了，很多都能自己做了，其实不然。优秀的程序员之路，其实才刚刚开始呢…</p><br>    <p>一般来说，优秀的程序员都不是单打独斗，只身钻研的，你得借鉴前人经验，与志同道合的人一起讨论交流，这对于提升自身能力来说是很有必要的，那么接下来的这些信息，你是很有必要知道的：</p><br>    <blockquote></blockquote><br>    <ul><br>        <li><a href="https://cnodejs.org/" target="_blank">国内nodejs专业社区</a> 这里有很多国内的nodejs大神，当然也有很多小白，他们输出了很多十分有价值的分享、经验，并且提供一个问题求助与交流的平台，当然你也能看到nodejs相关火爆的招聘来提升你的激情</li><br>        <li><a href="http://javascript.ruanyifeng.com/#nodejs" target="_blank">阮一峰的javascript教程</a> 这里有javascript初级、高级用法，也有koa相关介绍与使用</li><br>        <li><a href="http://es6.ruanyifeng.com/" target="_blank">阮一峰的es6入门</a> 很棒的一个学习es6的网站，关于es6一些新增的内容讲解很到位，对于中文学者来说，零门槛了…</li><br>        <li><a href="http://blog.fens.me/" target="_blank">粉丝日志</a> 一个很牛逼的CTO，你会发现你想研究的东西他几乎都已经研究过并且携程教程博客了！能在这里学到很多新东西</li><br>        <li><a href="http://www.liaoxuefeng.com/" target="_blank">廖雪峰的官方网站</a> 这里你能学习javascript、Python、git等，方便你快速入门的一个很好的地方</li><br>    </ul><br>    <h3>coding reference</h3><br>    <p>再分享一些对于我来说帮助挺大的网站吧，来个分门别类的，</p><br>    <h4>koa应用</h4><br>    <blockquote></blockquote><br>    <ul><br>        <li><a href="https://github.com/koajs/koa/wiki" target="_blank">koa官方文档</a> 这里你能找到koa开发中常用的各种库，middleware、session、router、body parsing等</li><br>        <li><a href="https://github.com/node-webot" target="_blank">node微信开发文档</a> 繁杂的微信开发过程已经由国内几位大神<a href="/user/TZ" target="_blank">@TZ</a> | 天猪 <a href="/user/Jackson" target="_blank">@Jackson</a> Tian <a href="/user/Jesse" target="_blank">@Jesse</a> Yang 将其封装的很好了，es5、es6通吃，是学习、借鉴的好地方</li><br>    </ul><br>    <h4>Promise相关</h4><br>    <blockquote></blockquote><br>    <ul><br>        <li><a href="http://liubin.github.io/promises-book/" target="_blank">JavaScript Promise迷你书</a> 这个对于我理解promise帮助是最大的一个</li><br>        <li><a href="https://leohxj.gitbooks.io/front-end-database/content/javascript-asynchronous/use-promise.html" target="_blank">一个前端系统化的学习网站</a></li><br>        <li><a href="http://blog.inching.org/2014/02/17/javascript-promise" target="_blank">Johnny Fee’blog</a> 一个福州的小伙伴，全栈工程师，这篇关于promise的blog分析很透彻</li><br>    </ul><br>    <h4>Mac开发</h4><br>    <blockquote></blockquote><br>    <ul><br>        <li><a href="http://blog.jobbole.com/89013/" target="_blank">高效 MacBook 工作环境配置</a> 这篇blog基本涵盖了我日常的所有配置，有很多能够借鉴的东西</li><br>        <li><a href="http://mac-osx-for-newbie-book.kejyun.com/" target="_blank">Mac OSX 新手入門</a> 介绍了一些基本的osx入门工具</li><br>    </ul><br>    <h4>工具库</h4><br>    <blockquote></blockquote><br>    <ul><br>        <li><a href="http://underscorejs.org/" target="_blank">underscore</a> 一个javascript工具库，方便我们对string、array、collections、object等数据的操作</li><br>        <li><a href="https://lodash.com/docs" target="_blank">lodash</a> 一个fork underscore的库，最后性能比underscore高出好几倍，并且提供了underscore没有的优秀API…为什么说lodash比underscore性能高出好几倍呢？因为这是比lodash性能还要高出很多的<a href="https://github.com/dtao/lazy.js" target="_blank">lazy.js</a>测出来的థ౪థ这个世界如你所见，确实很疯狂…</li><br>    </ul><br>    <h4>学习型网站</h4><br>    <blockquote></blockquote><br>    <ul><br>        <li><a href="http://www.codefordream.com/" target="_blank">CodeForDream</a> Program changes the world ，适合初学者，这里你能以互动的形式较为全面的学习HTML、CSS、Javascript等</li><br>        <li><a href="http://www.imooc.com/course/list" target="_blank">慕课网</a> 算得上国内一线学习平台了吧，其中的课程涵盖前端、移动端、后端、数据处理，甚至是ps。程序员的梦工厂，这里你几乎能找到自己想学的任何语言，很多不错的课程，也有很多爱学习的小伙伴</li><br>        <li><a href="http://www.icoolxue.com/" target="_blank">爱酷学习网</a> 与慕课网类型差不多的学习类平台，在我看来这里貌似培训学校老师的分享多一些，风格不一</li><br>    </ul><br>    <p>类似的学习平台，挺多的，比如<a href="http://www.jikexueyuan.com/" target="_blank">极客学院</a> 、<a href="http://www.hubwiz.com/" target="_blank">汇智网</a>等，不过这些学习型网站，对于小白童鞋来说不错，但是对于有一定基础的童鞋可能就不太适合循规蹈矩的跟着看、做了，有些东西知道、会用、会写，是三个不同的级别了…</p><br>    <h4>开发相关工具</h4><br>    <blockquote></blockquote><br>    <ul><br>        <li><a href="https://www.jetbrains.com/webstorm/" target="_blank">WebStorm</a> 首推webstorm，集成各种功能，只有你没想到的，你觉得没有的很可能是你还没发现而已，我使用的过程中就经常这种体会，‘诶，居然有这功能’ ‘哇靠，这都支持！’ ‘webstorm是神器…’</li><br>        <li><a href="http://www.sublimetext.com/" target="_blank">sublime</a> 速度超快的一款ide，<a href="https://packagecontrol.io/" target="_blank">package control</a> 中有很多强大的插件包，你能定义自己的ide</li><br>        <li><a href="https://atom.io/" target="_blank">atom</a> 类似于Sublime的一款高度自定义ide，说的是比Sublime更快，就我用起来，感觉两者差不太多，相同的包管理，自定义各种插件等，前段时间，一个atom的<a href="https://github.com/JoelBesada/activate-power-mode" target="_blank">代码编写插件</a> 刷遍了程序员的朋友圈，一种星际战斗的感觉，哈哈</li><br>        <li><a href="https://www.zybuluo.com/mdeditor" target="_blank">Cmd Markdown</a> 一款在线的mark编辑工具，有详细的markdown语法，更新迭代挺快的，现在都出全平台桌面版了…</li><br>        <li><a href="http://pad.haroopress.com/" target="_blank">haroopad</a> 一款强大的本地markdown编辑器，支持代码高亮，带格式、无格式HTML导出等，一个月之前，我一直都用的是这款本地markdown编辑器</li><br>        <li><a href="http://macdown.uranusjr.com/" target="_blank">macdown</a> osx下比较好用的markdown编辑器，现在我是haroopad和macdown轮着用，macdown就显示而言，简洁大方，haroopad的功能强大一些</li><br>    </ul><br>    <p>暂时先写这么多吧，后续再跟新~</p><br>    <p>得到很多小伙伴的肯定，我表示十分的高兴，哈哈~ 这里记录的都是在某个时段与我来说很有用的东西，某些童鞋要是觉得并没有什么干货的话，那是你已经比较厉害了噢（这么说不会被打吧- -）</p><br>    <p>ps: 我很期待明天，因为我对明天充满希望与热情，哈哈</p><br></div>
+      </div>
+      <footer class="article-footer">
+        <a data-url="http://blog.css6.com/2016/01/12/记录我这一年的技术之路-nodejs纯干货/" data-id="cijb21gza0049kprlz1nhs7xh" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+      </footer>
+    </div>
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+  </article>
+  
+  
+  <section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="post-记录我这一年的技术之路-nodejs纯干货" data-title="记录我这一年的技术之路(nodejs纯干货)" data-url="http://blog.css6.com/2016/01/12/记录我这一年的技术之路-nodejs纯干货/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'css3'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+  </section>
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/jsonxu" target="_blank"><i class="icon fa fa-github"></i></a></li>
+      
+        <li><a class="social-tooltip" title="weibo" href="http://weibo.com/kaixu" target="_blank"><i class="icon fa fa-weibo"></i></a></li>
+      
+    </ul>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/12/untitled/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
+        
+          (no title)
+        
+      </p>
+      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+  
+  
+    <a href="/2016/01/11/神一样的nodeJS之4-Express路由/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">神一样的nodeJS之4:Express路由</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+  
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/12/untitled/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2016/01/12/untitled/" class="title"></a></p>
+              <p class="item-date"><time datetime="2016-01-12T07:06:13.897Z" itemprop="datePublished">2016-01-12</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/12/记录我这一年的技术之路-nodejs纯干货/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术文摘/">技术文摘</a></p>
+              <p class="item-title"><a href="/2016/01/12/记录我这一年的技术之路-nodejs纯干货/" class="title">记录我这一年的技术之路(nodejs纯干货)</a></p>
+              <p class="item-date"><time datetime="2016-01-12T06:59:17.000Z" itemprop="datePublished">2016-01-12</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/11/神一样的nodeJS之4-Express路由/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/nodeJS/">nodeJS</a></p>
+              <p class="item-title"><a href="/2016/01/11/神一样的nodeJS之4-Express路由/" class="title">神一样的nodeJS之4:Express路由</a></p>
+              <p class="item-date"><time datetime="2016-01-11T04:05:27.000Z" itemprop="datePublished">2016-01-11</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/08/神一样的nodeJS：使用Express应用生成器/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/nodeJS/">nodeJS</a></p>
+              <p class="item-title"><a href="/2016/01/08/神一样的nodeJS：使用Express应用生成器/" class="title">神一样的nodeJS之3：使用Express 应用生成器</a></p>
+              <p class="item-date"><time datetime="2016-01-08T09:54:09.000Z" itemprop="datePublished">2016-01-08</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/08/神一样的nodeJS-安装express框架/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/nodeJS/">nodeJS</a></p>
+              <p class="item-title"><a href="/2016/01/08/神一样的nodeJS-安装express框架/" class="title">神一样的nodeJS之2：安装express框架</a></p>
+              <p class="item-date"><time datetime="2016-01-08T08:20:28.000Z" itemprop="datePublished">2016-01-08</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/nodeJS/">nodeJS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端笔记/">前端笔记</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/吐槽/">吐槽</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术文摘/">技术文摘</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活随笔/">生活随笔</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">五月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/FIS/">FIS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FIS-pure/">FIS-pure</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IE/">IE</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS9/">IOS9</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VIM/">VIM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XAMPP/">XAMPP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/contributions/">contributions</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css6/">css6</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express-generator/">express-generator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/meta/">meta</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodeJS/">nodeJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react native</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/个人介绍/">个人介绍</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/产品经理/">产品经理</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/京东-1号店-不约/">京东 1号店 不约</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端工程化/">前端工程化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端技能/">前端技能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端架构/">前端架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/加密/">加密</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令/">命令</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术文摘/">技术文摘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指南/">指南</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数组/">数组</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构师/">架构师</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/浏览器指纹/">浏览器指纹</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/用户信息采集/">用户信息采集</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/组件库/">组件库</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/规范/">规范</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨域/">跨域</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/路由/">路由</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试题/">面试题</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/FIS/" style="font-size: 10px;">FIS</a> <a href="/tags/FIS-pure/" style="font-size: 10px;">FIS-pure</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/IOS9/" style="font-size: 10px;">IOS9</a> <a href="/tags/VIM/" style="font-size: 10px;">VIM</a> <a href="/tags/XAMPP/" style="font-size: 10px;">XAMPP</a> <a href="/tags/contributions/" style="font-size: 10px;">contributions</a> <a href="/tags/css6/" style="font-size: 10px;">css6</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/express-generator/" style="font-size: 10px;">express-generator</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/meta/" style="font-size: 10px;">meta</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/nodeJS/" style="font-size: 15px;">nodeJS</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/个人介绍/" style="font-size: 10px;">个人介绍</a> <a href="/tags/产品经理/" style="font-size: 15px;">产品经理</a> <a href="/tags/京东-1号店-不约/" style="font-size: 10px;">京东 1号店 不约</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/前端工程化/" style="font-size: 15px;">前端工程化</a> <a href="/tags/前端技能/" style="font-size: 10px;">前端技能</a> <a href="/tags/前端架构/" style="font-size: 10px;">前端架构</a> <a href="/tags/加密/" style="font-size: 10px;">加密</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/技术文摘/" style="font-size: 10px;">技术文摘</a> <a href="/tags/指南/" style="font-size: 10px;">指南</a> <a href="/tags/教程/" style="font-size: 20px;">教程</a> <a href="/tags/数组/" style="font-size: 10px;">数组</a> <a href="/tags/架构师/" style="font-size: 10px;">架构师</a> <a href="/tags/浏览器指纹/" style="font-size: 10px;">浏览器指纹</a> <a href="/tags/用户信息采集/" style="font-size: 10px;">用户信息采集</a> <a href="/tags/组件库/" style="font-size: 10px;">组件库</a> <a href="/tags/规范/" style="font-size: 10px;">规范</a> <a href="/tags/跨域/" style="font-size: 10px;">跨域</a> <a href="/tags/路由/" style="font-size: 10px;">路由</a> <a href="/tags/面试题/" style="font-size: 10px;">面试题</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://www.pingan.com/">中国平安</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <p class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </p>
+        <p>&copy; 2016 json xu</p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://cdn.css6.com/js/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="http://cdn.css6.com/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <script src="http://cdn.css6.com/scrollLoading/jquery.scrollLoading.js"></script>
+  <script src="http://cdn.css6.com/scrollLoading/main.js"></script>
+
+<script src="http://cdn.css6.com/js/html-patch.js"></script>
+<script src="http://cdn.css6.com/js/script.js"></script>
+
+  </div>
+</body>
+</html>
